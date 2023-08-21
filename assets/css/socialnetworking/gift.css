@@ -1,0 +1,85 @@
+.gifts{
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    left: 10%;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px black;
+    padding-top: 25px;
+    z-index: 999999;
+}
+
+.close{
+    z-index: 999999999999;
+    position: absolute;
+    right: 0; 
+    top: 0;
+}
+
+.sum, .subtract{
+    user-select: none;
+    -webkit-touch-callout: none;  /* iPhone OS, Safari */
+    -webkit-user-select: none;    /* Chrome, Safari 3 */
+    -khtml-user-select: none;     /* Safari 2 */
+    -moz-user-select: none;       /* Firefox */
+    -ms-user-select: none;        /* IE10+ */
+    cursor: pointer;
+}
+
+.btn-give{
+    color: #fff;
+    background-color: #e1353d;
+    border-color: #df272f;
+    border-radius: 10px;
+}
+
+@media(min-width:767px) {
+    .gifts{
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 2px 2px 5px black;
+        width: 355px;
+    }
+}
+
+@media(min-width:1220px) {
+    .gifts{
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 2px 2px 5px black;
+        width: 411px;
+    }
+}
+
+@media(min-width:1440px) {
+    .gifts{
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 2px 2px 5px black;
+    }
+}
+
+@media(min-width:1920px) {
+    .gifts{
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 2px 2px 5px black;
+    }
+}

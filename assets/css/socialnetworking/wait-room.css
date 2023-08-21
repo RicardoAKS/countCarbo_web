@@ -1,0 +1,51 @@
+.wait-room#section-wait-room{
+    background-image: url(../../img/padrao/background.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: absolute;
+    z-index: 100000000000;
+    width: 100%;
+}
+.wait-room#section-wait-room .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+}
+
+.logo-wait{
+
+    height: 80px;
+}
+
+.bg-white{
+    border-radius: 25px;
+    padding: 15px;
+    margin-top: 50px;
+}
+
+.bg-white h2{
+    color: #ff4c61;
+}
+
+.wait-room#section-wait-room .btn-pink{
+    background-color: #f93c66;
+    border-radius: 35px;
+    text-align: center;
+    position: relative;
+}
+.wait-room#section-wait-room .btn-pink i{
+    transform:scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    display: block;
+    font-size: 33px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+}

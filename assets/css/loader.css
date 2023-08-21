@@ -1,0 +1,225 @@
+/* $Base */
+
+.loader {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+
+/*	$Loader Multiple circle
+	========================================================================== */
+
+.loader-circles {
+    border-radius: 50px;
+    border: 3px solid transparent;
+    border-top-color: #f01b2f;
+    -o-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+.loader-circles:before,
+.loader-circles:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;  
+    border-radius: 50px;
+    border: 3px solid transparent;
+    border-top-color: #fd6522;
+    opacity: 0.8;
+    /* filter: alpha(opacity=80); */
+    -o-animation: spinreverse 5s linear infinite;
+    -moz-animation: spinreverse 5s linear infinite;
+    -webkit-animation: spinreverse 5s linear infinite;
+    animation: spinreverse 5s linear infinite;
+}
+
+.loader-circles:before {
+    top: 12px;
+    left: 12px;
+    bottom: 12px;
+    right: 12px;    
+    border-top-color: #091B31;
+    -o-animation: spinreverse 10s linear infinite;
+    -moz-animation: spinreverse 10s linear infinite;
+    -webkit-animation: spinreverse 10s linear infinite;
+    animation: spinreverse 10s linear infinite;
+}
+
+@-webkit-keyframes grow {
+    0% {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    50% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        opacity: 0;
+    }
+}
+
+@keyframes grow {
+    0% {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    50% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spinreverse {
+    0% {
+        -webkit-transform: rotate(0deg);
+        tranform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(-360deg);
+        tranform: rotate(-360deg);
+    }
+}
+
+@keyframes spinreverse {
+    0% {
+        -webkit-transform: rotate(0deg);
+        tranform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(-360deg);
+        tranform: rotate(-360deg);
+    }
+}
+
+#loader-overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #eaeaea;
+    position: fixed;
+    z-index: 1000000000000000000;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+/* Loader de perfis */
+
+/* #loader-profile{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 1000000000000000000;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+} 
+
+.loader-pulse{
+    animation: pulse 0.7s infinite;
+    margin: 0 auto;
+    display: table;
+    margin-top: 50px;
+    animation-direction: alternate;
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+} */
+#loader-profile{
+    z-index: 10;
+	width: 100%;
+	height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader-pulse {
+    width: 90px;
+    height: 90px;
+}
+
+.loader-pulse::before,
+.loader-pulse::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	border: 4px solid #fff;
+}
+
+.loader-pulse::before {
+    z-index: 0;
+    animation: 1s pulse infinite linear;
+    width: 100px;
+    height: 100px;
+    margin: -5px 0px 0px -5px;
+}
+
+.loader-pulse::after {
+    z-index: 10;
+    background: url("../../assets/img/padrao/logo-bw.png") center center no-repeat #FFF;
+    background-size: 65%;
+    background-color: transparent;
+    background-position: center;
+    margin: 0px 5px 5px 0px;
+}
+
+@keyframes pulse {
+	0% { opacity: 0; transform: scale(0.8); }
+	50% { opacity: 1; }
+	100% { opacity: 0; transform: scale(1.5); }
+}
+

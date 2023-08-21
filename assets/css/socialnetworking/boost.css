@@ -1,0 +1,40 @@
+.boost-box {
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, #281da9 39%, #281da9 65%, rgba(7,8,8,1) 100%);    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.boost-box img {
+    width: 70px;
+    margin-top: 15px;
+}
+
+.boost-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.boost-form #boost-time{
+    margin: 10px;
+    padding: 6px;
+    background-color: transparent;
+    color: #F1F1F3!important;
+    border: 1px solid white;
+    font-family: 'gilroy','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    max-width: 100%;
+}
+
+.boost-form #boost-time option{
+    background-color: #281da9;
+}
+@media(min-width: 767px){
+    .boost-box {
+        margin: 0 50px 0 50px;
+    }
+}

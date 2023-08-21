@@ -1,0 +1,34 @@
+.btn-active{
+    background-color: #E72E37;
+    color: white;
+}
+
+.image{
+    width: 65px;
+    height: 61px;
+    background-size: 61px 61px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto 0;
+}
+
+.price-total{
+    color:#ff2372;
+}
+
+.form-group input, .form-group select{
+    border: 1px solid #ced4da;
+}
+
+@media(min-width:767px){
+
+    .image{
+        width: 100px;
+        height: 100px;
+        background-size: 115px 97px;
+        background-repeat: no-repeat;
+        margin-top: 5px;
+        background-position: center;
+        margin: auto 0;
+    }
+}

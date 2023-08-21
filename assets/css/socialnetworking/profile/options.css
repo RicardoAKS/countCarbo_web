@@ -1,0 +1,215 @@
+nav{display:none}
+.title{
+    color: #091b31;
+    font-size: 15px;
+    justify-self: end;
+    color: #091b31;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+@media(max-width:425px){
+    .title{
+        
+        justify-content: flex-end;
+    }
+    .header-options h1.panton{
+        justify-content: flex-end;
+    }
+}
+.options-content a{
+    color: #091b31!important;
+}
+hr {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.header-options .back{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+.header-options .input-group-prepend {
+    height: 30px;
+}
+.header-options .col-6 {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+.header-options .col-6.back {
+    justify-content: start;
+}
+@media(max-width: 425px){
+    .header-options .title-my.panton {
+        justify-content: flex-end;
+    }
+}
+.header-options .input-group-prepend span{
+    height: 30px;
+    padding: 6px 5px;
+    background-color: #eaeaea;
+    border-radius: 25px 0 0 25px;
+    border: 0;
+}
+
+.header-options .input-group-prepend .btn {
+    height: 30px;
+    padding: 6px 5px;
+    background-color: #fff;
+    border-radius: 25px 0 0 25px;
+    border: 0;
+}
+
+.header-options input.form-control {
+    height: 30px;
+    border-radius: 0 25px 25px 0!important;
+    background-color: #eaeaea;
+    border: 0;
+    font-size: 13px;
+    font-family: 'gilroy ligth','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0 5px 0 0;
+}
+.btn-back{
+    height: 35px;
+    width: 35px;
+    background-image: url(../../../img/icones/lineb.png);
+    background-size: 55%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(90deg);
+}
+
+.header-options h1.panton{
+    font-size: 15px;
+    margin: 0;
+    color: #091b31!important;
+    display: flex;
+    align-items: center;
+}
+
+.form-group input{
+    border-radius: 20px;
+    background-color: #fff;
+    height: 45px;
+    line-height: 45px;
+    border: none;
+    font-family: 'berlin sans fb';
+}
+.form-group input::placeholder{
+    color: #af1c7e83;
+}
+
+.form-group select{
+    border-radius: 20px;
+    background-color: #fff;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    /*border: none;*/
+    font-family: 'berlin sans fb';
+}
+.form-group select::placeholder{
+    color: #af1c7e83;
+}
+.form-group textarea{
+    border-radius: 20px;
+    background-color: #fff;
+    text-align: center;
+    resize: none;
+    border: none;
+    font-family: 'berlin sans fb';
+}
+.form-group textarea::placeholder{
+    color: #777777;
+    text-align: center;
+}
+.form-group .border{
+    border-radius: 20px;
+    background-color: #fff;
+    height: 45px;
+    line-height: 45px;
+    border: none;
+    font-family: 'berlin sans fb';
+}
+.form-control:focus {
+    background-color: #fff;
+    border: none;
+    outline: 0;
+    box-shadow: 0 0 15px #00000046!important;
+}
+label{
+    text-transform: uppercase;
+    color:#091b31;
+    margin-bottom: 0;
+    font-size: 12px;
+}
+.tox-tinymce {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif!important;
+    height: 100px!important;
+    border-radius: 25px!important;
+    border: 0!important;
+}
+.tox-tinymce::placeholder {
+    font-family: 'gilroy','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif!important;
+    height: 133px!important;
+    border-radius: 25px!important;
+    border: 0!important;
+}
+
+.btn-purple{
+    background-color: #8D358B;
+    border-radius: 25px;
+    color: #eaeaea;
+    padding:10px 15px;
+}
+
+@media(min-width:767px){
+    #options-form{
+        display: grid;
+        column-gap:15px;
+        grid-template-columns: 1fr 2fr;
+    }
+    .options#options-content .add-photo {
+        background-size: 80%;
+      
+    }
+    .options#options-content .options-photo {
+        height: 170px;
+        width: 170px;
+        border-radius: 50%;
+    }
+    .options#options-content .profile-options-photo {
+        grid-template-columns: 1fr!important;
+        grid-template-rows: 200px 200px;
+        border-radius: 95px 95px 35px 35px;    
+        justify-items: center;
+    }
+}
+
+@media(min-width:1023px){
+    #options-form{
+        display: grid;
+        column-gap:15px;
+        grid-template-columns: 1fr 4fr;
+    }  
+}
+
+@media(min-width:767px){
+    .options-content a{
+        font-size: 18px;
+    }
+}
+
+@media(min-width: 768px){
+    .container:first-child{
+        width: 50%!important;
+    }
+
+    #buy-plans .container:first-child{
+        width: unset!important;
+    }
+}

@@ -1,0 +1,55 @@
+body {
+    position:relative;
+    overflow: hidden;
+    background: #eaeaea;
+}
+
+.banner-content {
+    position: relative;
+    height: 80vh;
+    margin-top: 5%;
+    padding-top: 16%;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #25a55f;
+    box-shadow: inset 0 0 5px 10px #00000050;
+}
+
+.first {
+    position: absolute;
+    left: 36%;
+    animation: 1s linear changeSizeLargeToSmallFirts;
+    filter: drop-shadow(5px 2px 5px #00000080);
+}
+
+.second {
+    position: absolute;
+    animation: .5s linear changeSizeSmallToLarge;
+    filter: drop-shadow(5px 2px 5px #00000080);
+}
+
+.third {
+    position: absolute;
+    right: 36%;
+    animation: 1.5s linear changeSizeLargeToSmallThird;
+    filter: drop-shadow(5px 2px 5px #00000080);
+}
+
+@keyframes changeSizeLargeToSmallFirts {
+    0% { font-size: 160pt; left: -200%; }
+    50% { font-size: 120pt; }
+    100% { font-size: 160pt; }
+}
+
+@keyframes changeSizeSmallToLarge {
+    0% { font-size: 160pt; top: -200% }
+    50% { font-size: 130pt; top: -100%; }
+    100% { font-size: 160pt; }
+}
+
+@keyframes changeSizeLargeToSmallThird {
+    0% { font-size: 160pt; right: -200%; }
+    50% { font-size: 120pt; }
+    100% { font-size: 160pt; }
+}

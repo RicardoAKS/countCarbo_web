@@ -1,0 +1,50 @@
+#about-content{
+    background-color: #fff;
+    background: url(../../img/banners/main-banner.jpg);
+}
+#about-content .title{
+    margin-bottom: 60px;
+}
+
+#about-content .title h2{
+    font-weight: bold;
+}
+
+#about-content .text p{
+    font-size: 17px;
+    text-align: justify;
+    padding: 10px 0;
+}
+
+#about-content .banner-bottom {
+    background-image: url(../../img/banners/about-2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90px;
+}
+
+#about-content .about-we{
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media(min-width: 778px){
+    #about-content .text p{
+        font-size: 19px;
+        padding: 5px 0;
+        text-align: start;
+    }
+    #about-content .banner-bottom {
+        height: 150px;
+    }
+}
+
+@media(min-width: 1200px){
+    #about-content .banner-bottom {
+        height: 210px;
+    }
+}

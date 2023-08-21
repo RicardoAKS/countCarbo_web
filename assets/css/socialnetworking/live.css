@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+}
+
+iframe {
+    width: 100%;
+    height: 100vh;
+}
+
+nav {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+nav a {
+    color: #fff;
+    float: right;
+    margin-right: 15px;
+}
+
+nav .btn-gift {
+    height: 20px!important;
+    float: right;
+    margin-top: 7px;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+}
+
+.live#live-content .live-div{
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background-color: #e72e37;
+    background-image: url('../../img/padrao/profile-user.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.live#live-content .live-div .comment .profile{
+    height: 30px;
+    width: 30px;
+    background: aqua;
+    background-color: #e72e37;
+    background-image: url('../../img/padrao/profile-user.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.append-comment{
+    overflow-y: scroll;
+    height: 200px;
+}
+.live#live-content .live-div .comment .commentary {
+    position: relative;
+    padding: 10px 0 0 0;
+}
+
+.live#live-content .live-div .comment .commentary p{
+    font-family: 'gilroy light';
+    font-size: small;
+}
+
+.comment input.form-control {
+    height: 30px;
+    border-radius: 25px 0 0 25px!important;
+    background-color: #fff;
+    border: 0;
+    font-size: 13px;
+    font-family: 'gilroy ligth','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.comment img{
+    height: 18px;
+}
+/* 
+.fadeout {
+    position: absolute; 
+    width:100%;
+    height: 3em;
+    background: -moz-linear-gradient(180deg, rgba(234,234,234,1) 37%, rgba(234,234,234,0) 94%);
+    background: -webkit-linear-gradient(180deg, rgba(234,234,234,1) 37%, rgba(234,234,234,0) 94%);
+    background: linear-gradient(180deg, rgba(234,234,234,1) 37%, rgba(234,234,234,0) 94%);
+    z-index: 999;
+} */
+.input-group-append {
+    height: 30px;
+}
+.input-group-append .btn {
+    height: 30px;
+    padding: 6px 5px;
+    background-color: #fff;
+    border-radius: 0 25px 25px 0;
+    border: 0;
+}
+
+.btn-heart{
+    background-color: #fff;
+    border-radius: 25px;
+    border: 0;
+    padding:6px;
+    height: 30px;
+    margin-left: 2px;
+}
+.btn-gift{
+    background-color: #fff;
+    border-radius: 25px;
+    border: 0;
+    padding:6px;
+    height: 30px;
+    margin-right: 2px;
+}
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 0px 3px #000;
+    opacity: 1;
+    top: 0;
+    position: absolute;
+    color: #eaeaea;
+    right: 7px;
+}
+
+/* ANIMAÇÃO DA FOTO DE PERFIL */
+
+.profile-animation{
+    height: 25px;
+    width: 25px;
+    border-radius: 25px;
+    background-color: #e72e37;
+    background-image: url('../../img/padrao/profile-user.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (min-width: 767px){
+    #chat::-webkit-scrollbar{
+        width: 2px;
+    }
+    #chat::-webkit-scrollbar-thumb {
+        background-color: #a7a7a7;
+    }
+    #chat::-webkit-scrollbar-thumb:hover {
+        background: #c1c1c1;
+    }
+    #box-chat::-webkit-scrollbar{
+        width: 2px;
+    }
+    #box-chat::-webkit-scrollbar-thumb {
+        background-color: #a7a7a7;
+    }
+    #box-chat::-webkit-scrollbar-thumb:hover {
+        background: #c1c1c1;
+    }
+}

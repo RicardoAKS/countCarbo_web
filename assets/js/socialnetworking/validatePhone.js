@@ -1,0 +1,131 @@
+/**
+ *
+ * Script de validação da contas
+ *
+ * @author Emprezaz
+ *
+ **/
+ (function($, PATH, Helpers) {
+
+    //função que aplica as mascaras nos campos determinados
+    mask = function() {
+        Helpers.codeMask($('input[name="code"]'));
+    }
+
+    validate = function() {
+
+        $('body').on('click', '#continue', function() {
+
+            if (check()) {
+
+                $('#loader-overlay').fadeIn()
+
+                let code = $('input[name="code"]').val();
+                let phone = $('input[name="phone"]').val();
+                let id = $('input[name="id"]').val();
+
+                $.ajax({
+                    url: PATH + '/checkValidationCode',
+                    dataType: 'json',
+                    type: 'POST',
+                    async: false,
+                    data: {
+                        code: code,
+                        phone: phone
+                    },
+                    complete: function(response) {
+
+                        $('#loader-overlay').fadeOut()
+
+                        if (typeof response.responseJSON.result == 'string') {
+
+                            swal({
+                                type: 'warning',
+                                title: 'Atenção',
+                                text: response.responseJSON.result,
+                                confirmButtonColor: "#cc1b5b",
+                                confirmButtonText: 'Continuar'
+                            })
+
+                            return false
+
+                        }
+
+                       
+                        if(Parameters[0] == "confirm"){
+                            window.location.href = PATH + `/`;
+
+                        }else{
+                            window.location.href = PATH + `/wait-room`;
+                        }
+
+                    }
+                })
+
+            }
+
+        })
+    }
+
+    check = function() {
+
+        code = $('input[name="code"]').val();
+
+        if (code == '' || code.length < 4) {
+            swal({
+                type: 'warning',
+                title: 'Atenção',
+                text: 'Digite o código',
+                confirmButtonColor: "#cc1b5b",
+                confirmButtonText: 'Continuar'
+            })
+            return false
+        }
+
+        return true;
+    }
+
+    resend = function() {
+
+        $('p.resend').click(function() {
+
+            $('#loader-overlay').fadeIn()
+
+            $.ajax({
+                url: PATH + '/resendValidationCode',
+                data: {
+                    id: $("input[name='id']").val(),
+                    phone: $("input[name='phone']").val()
+                },
+                dataType: 'json',
+                type: 'POST',
+                async: false,
+                complete: function(response) {
+
+                    $('#loader-overlay').fadeOut()
+
+                    swal({
+                        type: 'success',
+                        title: 'Verifique seu celular',
+                        text: 'O código foi reenviado',
+                        confirmButtonColor: "#cc1b5b",
+                        confirmButtonText: 'Continuar'
+                    })
+
+                }
+            })
+
+        })
+
+    }
+
+    $(document).ready(function() {
+
+        console.log(Parameters[0])
+        validate();
+        mask();
+        resend()
+
+    });
+
+})($, PATH, Helpers);

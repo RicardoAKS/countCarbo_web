@@ -1,0 +1,436 @@
+.myprofile#myprofile-content{
+    background: linear-gradient( 180deg, #ff2372 5%, #ffc76b 64%);
+    min-height: 100vh;
+    width: 100%;
+}
+
+.myprofile#myprofile-content .menu-edit{
+    cursor: pointer;
+    position: absolute;
+    z-index: 9;
+    right: 25px;
+    top: 25px;
+}
+.myprofile#myprofile-content .menu-edit i{
+    color: #fff;
+    font-size: 30px;
+}
+
+.myprofile#myprofile-content .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    width: 100%;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* foto da pessoa */
+.myprofile#myprofile-content .profile-div{
+    height: 100%;
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    left: 0;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.myprofile#myprofile-content .personalinformations {
+    padding: 15px;
+    background-image: linear-gradient(180deg, #ff2372 5%, #ffc76b 200%);    
+    color: #eee;
+    border-radius: 15px;
+    display: none;
+}
+
+.myprofile#myprofile-content .personalinformations p {
+    margin-bottom: 15px;
+    font-size: 15px;
+    text-shadow: -1px 1px 3px black; 
+}
+
+.myprofile#myprofile-content .personalinformations p b{
+    font-size: 17px;
+}
+
+.myprofile#myprofile-content .infos .avaliable-days{
+    background-image: linear-gradient(140deg, #5b3d3c 0, #4d3536 12.5%, #3c2c2e 25%, #2a2223 37.5%, #171717 50%, #000804 62.5%, #000000 75%, #000000 87.5%, #000000 100%);
+	color: white!important;
+    padding: 8px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.myprofile#myprofile-content .profile.rounded-circle{
+    height: 150px;
+    width: 150px;
+    background-color: #8b0e14;
+    background-image: url('../../img/noprofile.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display:block;
+    cursor: pointer;
+}
+.myprofile#myprofile-content .col-4, .myprofile#myprofile-content .col-8{
+    padding: 0px!important;
+}
+.myprofile#myprofile-content .box-infos{
+    padding: 80px 0 80px 0;
+}
+
+/* div que contem todos as informações */
+.myprofile#myprofile-content .btn-more-info{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.myprofile#myprofile-content .btn-more-info:hover{
+    text-decoration: underline;
+}
+
+.myprofile#myprofile-content .infos{
+    background-color: #fff;
+    border-radius: 10px;
+    min-height: 50vh;
+    padding: 5px 9px;
+}
+
+/* Número de seguidores e numero de pessoas que estou seguindo */
+.myprofile#myprofile-content .infos .col-6.left{
+    justify-content: start;
+    padding: 25px 0 25px 10px;    
+    text-align: center;
+    display: flex;
+    font-size: 10pt;
+    color: #b01b7f;
+}
+.myprofile#myprofile-content .infos .col-6.right{
+    justify-content: flex-end;
+    padding: 25px 20px 25px 0;
+    display: flex;
+    text-align: center;
+    font-size: 10pt;
+    color: #b01b7f;
+}
+
+/* Nome e botõs de msg, configurações e da live */
+.myprofile#myprofile-content .infos .infos-column{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    margin-top: 65px;
+}
+.myprofile#myprofile-content .infos .infos-column p{
+    align-items: center;
+    justify-content: center;
+    font-family: 'gilroy','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 11pt;
+    color: #ef1c2f;
+}
+.myprofile#myprofile-content .infos .infos-column p .age-color{
+    color: #fd6522;
+}
+
+.myprofile#myprofile-content .infos .infos-column p b{
+    color: #8C8C8C;
+}
+.myprofile#myprofile-content .infos .mycredits {
+    background-color: #171716;
+    color: #fff;
+    padding: 6px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'gilroy','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.myprofile#myprofile-content .infos .mycredits img{
+    height: 18px;
+    padding-left: 6px;
+    vertical-align: text-bottom;
+}
+.myprofile#myprofile-content .infos .infos-column .name{
+    background-color: #eaeaea;
+    border-radius: 25px;
+    box-shadow: 0 3px 5px #00000073;
+    padding: 5px 12px;
+    letter-spacing: 1px;
+}
+.myprofile#myprofile-content .infos .infos-column .name.man{
+    background-color: #eaeaea;
+    border-radius: 5px;
+    box-shadow: 0 3px 5px #00000073;
+    padding: 5px 12px;
+    letter-spacing: 1px;
+    width: 100%;
+}
+.myprofile#myprofile-content .infos .infos-column .name .username{
+    font-size: 12pt;
+}
+.myprofile#myprofile-content .infos .infos-column .name .locate{
+    justify-content: flex-end;
+}
+.myprofile#myprofile-content .infos .infos-column .camera{
+    height: 30px;
+    width: 30px;
+    background-color: #eaeaea;
+    border-radius: 25px;
+    box-shadow: 0 3px 5px #00000073;
+    padding: 5px 10px;
+    background-image: url(../../img/icones/camera.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 65%;
+    margin-left: 5px;
+}
+.myprofile#myprofile-content .infos .config{
+    border: 1px solid #ff2372;
+    border-radius: 5px;
+    padding: 5px 12px;
+    letter-spacing: 1px;
+    color: #fff;
+    font-family: 'gilroy','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    transition: .3s all;
+    background-color: #ff2372;
+}
+.myprofile#myprofile-content .infos .config:hover{
+    background-color: #fff;
+    color: #ef1c2f;
+}
+
+.show-desktop{
+    display: none!important;
+}
+
+.myprofile#myprofile-content .infos .infos-column .message{
+    height: 30px!important;
+    width: 30px!important;
+    background-color: #eaeaea;
+    border-radius: 25px;
+    box-shadow: 0 3px 5px #00000073;
+    padding: 5px 10px;
+    background-image: url(../../img/icones/message.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    float: right;
+    background-size: 60%;
+    margin-left: 5px;
+}
+
+.myprofile#myprofile-content .infos .infos-column .name img{
+    height: 16px;
+}
+.myprofile#myprofile-content .infos .infos-column .camera img,
+.myprofile#myprofile-content .infos .infos-column .config img,
+.myprofile#myprofile-content .infos .infos-column .message img{
+    height: 12px;
+}
+
+.myprofile#myprofile-content .infos .mydescription{
+    font-size: 8pt;
+    font-family: 'gilroy','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #767676;
+}
+.myprofile#myprofile-content .infos .row .col-4{
+    padding: 0 2.5px!important;
+    margin: 2.5px 0;
+}
+.myprofile#myprofile-content .infos .publications{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 5px;
+    align-items: flex-end;
+}
+.myprofile#myprofile-content .infos .publications video{
+    background-color: #8b0e14;
+    width: 100%;
+    height: 100%;
+}
+.myprofile#myprofile-content .infos .publications .photo{
+    background-color: #8b0e14;
+    background-position: top center;
+    width: 100%;
+    height: 100%;
+}
+
+.myprofile#myprofile-content .post-image {
+    min-height: 150px;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.myprofile#myprofile-content .post-image.not-draggable {
+    align-items: flex-end!important;
+}
+
+.myprofile#myprofile-content .post-image .back-image{
+    width: 0;
+    border-radius: 10px;
+    background-image: linear-gradient(180deg, #ff2372 5%, #ffc76b 200%);
+    cursor: pointer;
+    position: absolute;
+    height: 150px;
+    transition: all 0s linear;
+}
+
+.myprofile#myprofile-content .post-image .image {
+    width: 0;
+    min-height: 150px;
+    border-radius: 10px;
+}
+
+.myprofile#myprofile-content .exclude-image{
+    align-items: center;
+    background-color: #ff2372;
+    border-radius: 50%;
+    color: #ffffff;
+    display: flex;
+    height: 35px;
+    justify-content: center;
+    right: 0px;
+    top: -20px;
+    width: 100%;
+    z-index: 9;
+}
+
+.profile-hover{
+    background-image: url(../../img/icones/photo-white.png)!important;
+    position: absolute!important;
+    top: 0;
+    background-size: 50%!important;
+    background-position: center!important;
+    background-color: #0000009e!important;
+    height: 115px;
+    width: 115px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: none!important;
+}
+
+.profile-image {
+    transition: all .25s linear;
+}
+
+.profile-image:hover .profile-hover{
+    display: block!important;
+}
+
+.myprofile#myprofile-content img {
+    object-fit: contain;
+}
+
+.swal2-image {
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#account-validation{
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-family: 'gilroy','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border:0;
+    padding: 7px 20px;
+    position: relative;
+}
+#account-validation::before {
+    z-index: 0;
+    animation: 1s pulse infinite linear;
+    width: 100%;
+    height: 100%;
+    margin: -7px 0px 0px -19px;
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 20px;
+    border: 1px solid #9c232f;
+    box-shadow: inset 0 0 3px 0px #9c232f;
+}
+@media(max-width: 320px){
+    .myprofile#myprofile-content .profile.rounded-circle{
+        height: 115px;
+        width: 115px;
+    }
+}
+@media(min-width:767px){
+
+    section .container:first-child{
+        width: 40%!important;
+    }
+
+    .show-desktop{
+        display: block!important;
+    }
+
+    .profile-hover {
+        background-image: url(../../img/icones/photo-white.png)!important;
+        position: absolute!important;
+        top: 0;
+        background-size: 50%!important;
+        background-position: center!important;
+        background-color: #0000009e!important;
+        height: 115px;
+        width: 115px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        display: none!important;
+    }
+    header{
+        min-height: 50px;
+    }
+    .myprofile#myprofile-content {
+        padding-top: 40px;
+    }
+    .myprofile#myprofile-content .infos .col-6.right {
+        justify-content: center;
+        font-size: 12pt;
+    }
+    .myprofile#myprofile-content .infos .col-6.left {
+        justify-content: center;
+        font-size: 12pt;
+    }
+    .myprofile#myprofile-content .infos .row{
+        padding: 0 20px!important;
+    }
+    .myprofile#myprofile-content .infos {
+        padding: 15px 25px;
+    }
+    .myprofile#myprofile-content .infos .infos-column p {
+        font-size: 12pt;
+    }
+
+    .myprofile#myprofile-content .infos .infos-column .message {
+        height: 32px;
+        width: 30px;
+    }
+    .myprofile#myprofile-content .infos .infos-column .camera {
+        height: 32px;
+        width: 30px;
+    }
+    .myprofile#myprofile-content .infos .mydescription {
+        font-size: 10pt;
+    }
+    .myprofile#myprofile-content .profile-div{
+        height: 20px;
+        top: 100px;
+    }   
+    /* .myprofile#myprofile-content .profile.rounded-circle {
+        height: 150px;
+        width: 150px;
+    } */
+}
+
+
+@keyframes pulse {
+	0% { opacity: 0; transform: scale(0.9); }
+	50% { opacity: 1; }
+	100% { opacity: 0; transform: scale(1.3); }
+}

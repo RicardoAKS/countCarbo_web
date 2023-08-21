@@ -1,0 +1,100 @@
+@for $i from 1 through 50 {
+		
+    .x1 
+    {
+        @include animation-delay(random(2) + s);
+        -webkit-animation: animateBubble-#{$i} 10s linear infinite, sideWays-#{$i} 2s ease-in-out infinite alternate;
+        -o-animation: animateBubble-#{$i} 10s linear infinite, sideWays-#{$i} 2s ease-in-out infinite alternate;
+        animation: animateBubble-#{$i} 10s linear infinite, sideWays-#{$i} 2s ease-in-out infinite alternate;
+        -moz-animation: animateBubble-#{$i} 10s linear infinite, sideWays-#{$i} 2s ease-in-out infinite alternate;
+
+        left: random($limit: 5) + %;
+        top:25%;
+
+    }
+
+	
+	@keyframes getMoving-#{$i} {
+		
+		@for $e from 1 through 10 {
+						
+			0% { 
+				margin-top: 70vh;
+
+			}
+            100% {
+                margin-top: -100%;
+            }
+		}
+	}
+	@keyframes sideWays-#{$i}-#{$i} {
+		
+		@for $e from 1 through 10 {
+						
+            0% { 
+				margin-left:0px;
+
+			}
+            100% {
+                margin-left:random(50) + px;
+            }
+        }
+		
+	}
+
+    /* KEYFRAMES */
+
+    @-webkit-keyframes animateBubble-#{$i}  {
+        0% {
+            margin-top:  70vh;
+        }
+        100% {
+            margin-top: -100%;
+        }
+    }
+
+    @-moz-keyframes animateBubble-#{$i}  {
+        0% {
+            margin-top:  70vh;
+        }
+        100% {
+            margin-top: -100%;
+        }
+    }
+
+    @keyframes animateBubble-#{$i}  {
+        0% {
+            margin-top:  70vh;
+        }
+        100% {
+            margin-top: -100%;
+        }
+    }
+
+    @-webkit-keyframes sideWays-#{$i} { 
+        0% { 
+            margin-left:0px;
+        }
+        100% { 
+            margin-left:50px;
+        }
+    }
+
+    @-moz-keyframes sideWays-#{$i} { 
+        0% { 
+            margin-left:0px;
+        }
+        100% { 
+            margin-left:50px;
+        }
+    }
+
+    @keyframes sideWays-#{$i} { 
+        0% { 
+            margin-left:0px;
+        }
+        100% { 
+            margin-left:50px;
+        }
+    }
+}

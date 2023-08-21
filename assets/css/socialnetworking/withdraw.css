@@ -1,0 +1,53 @@
+.fas.fa-sort-up {
+    transition: transform .25s linear;
+    transform: rotate(180deg);
+}
+
+.card .collapsed .fas.fa-sort-up {
+    transform: unset;
+}
+
+.btn-back{
+    height: 35px;
+    width: 35px;
+    background-image: url(../../img/icones/lineb.png);
+    background-size: 55%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(90deg);
+}
+
+.payment-voucher {
+    width: 100%;
+    /* max-height: 300px; */
+    object-fit: cover;
+    object-position: top;
+    border: 1px solid #000000;
+    border-radius: 12px;
+}
+
+.btn-download {
+    position: absolute;
+    bottom: 10px;
+}
+
+.div-linear-background {
+    position: absolute;
+    top: 24px;
+    bottom: 0;
+    background: linear-gradient(360deg, #000000d6, transparent);
+    justify-content: center;
+    display: flex;
+}
+
+@media screen AND (min-width: 768px) {
+
+    .logo-image {
+        margin-top: 30px;
+    }
+
+    .payment-voucher {
+        width: 30%;
+    }
+
+}

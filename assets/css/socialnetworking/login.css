@@ -1,0 +1,92 @@
+.login#login-content{
+    background-color: #091b31;
+    background-image: url(../../img/padrao/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    overflow-x: hidden;
+    min-height: 100vh;
+    padding: 40px 0px;
+    position: relative;
+}
+
+.form-group input{
+    border-radius: 20px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    border: none;
+    font-family: 'berlin sans fb';
+}
+.form-group input::placeholder{
+    color: #e5928e;
+}
+.form-control:focus {
+    background-color: #fff;
+    border: none;
+    outline: 0;
+    box-shadow: 0 0 20px #00000094!important;
+}
+
+.login#login-content .image img{
+    width: 60%;
+}
+
+.login#login-content .image{
+    padding-bottom: 40px;
+}
+
+.btn-yellow{
+    width: 100%;
+    border-radius:30px;
+    padding: 10px 20px;
+}
+.cadastre{
+    width: 100%;
+    border-radius:30px;
+    padding: 10px 20px;
+    color: #d5392d;
+    font-size: 21px;
+}
+.cadastre:hover{
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.recover-password{
+    text-decoration: none!important;
+    display: block;
+}
+
+.recover-password small:hover{
+    text-decoration: underline;
+}
+
+@media(max-width:500px){
+    .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+        width: 100%;
+        padding-right: 60px;
+        padding-left: 60px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+@media(max-width:375px){
+    .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+        width: 100%;
+        padding-right: 30px;
+        padding-left: 30px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+@media(min-width:425px){
+    .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+        width: 425px;
+        padding-right: 30px;
+        padding-left: 30px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

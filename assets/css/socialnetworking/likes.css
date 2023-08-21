@@ -1,0 +1,389 @@
+body {
+    /*background: linear-gradient( 180deg, #ff2372 5%, #ffc76b 64%);*/
+    background:  #fff;
+    font-family: sans-serif;
+    min-height: 100vh;
+}
+
+.likes#likes-content{
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.top-options{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 80px;
+    text-align: center;
+    box-shadow: 0px 0px 15px #00000078;
+    z-index: 9;
+    background-color: #FFFFFF;
+}
+
+.top-options div.col-4{
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.top-options div.col-4.active{
+    color: #f32c2d;
+}
+
+.like-me{
+    display: none;
+}
+
+.like-me.active{
+    display: block;
+}
+
+.my-likes{
+    display: none;
+}
+
+.my-likes.active{
+    display: block;
+}
+
+.highlights{
+    display: none;
+}
+
+.highlights.active{
+    display: block;
+}
+
+.users {
+    box-sizing: border-box;
+    border: 1px solid #fff;
+}
+
+.users .user{
+    background-size: cover; 
+    width: 100%;
+    height: 100%;
+    background-position: top center;
+}
+
+.users .user:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    background-image: linear-gradient(0, #000000ba, transparent);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.users .user .info{
+    color: #eaeaea;
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+    width: 95%;
+}
+
+.options{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+}
+.options{
+    z-index: 99;
+}
+.options .opt-icon{
+    /* background-color: #fff; */
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    /* box-shadow: 0px 3px 10px #292929b0; */
+    transition: 0.5s;
+} 
+
+.options .opt-icon img{
+    height: 55px;
+    transition: 0.5s;
+}
+
+.options .opt-icon#super-like img,
+.options .opt-icon#super-like-modal img,
+.options .opt-icon.message img{
+    height: 45px;
+}
+
+.options.solo .opt-icon.message img {
+    height: 55px;
+}
+
+.options #boost img, 
+.options #undo img{
+    height: 40px;
+}
+
+  
+
+#message img{
+    width: 100%; 
+    height: 100%; 
+    padding: 12px; 
+    filter: invert(1);
+}
+
+#super-like img{
+    /* width: 100%;  */
+    height: 100%; 
+    /* padding: 10px;  */
+}
+
+.carousel-inner{
+    /* border-radius: 25px 25px 0 0; */
+    height: 100%;
+}
+
+.modal-body{
+    padding: unset;
+}
+
+.div-buttons{
+    /* border-radius: 0 0 25px 25px; */
+    padding: 10px;
+}
+
+.div-buttons .info .title{
+    align-items: baseline;
+}
+
+ .modal-content .modal-body .carousel img{
+    object-fit: cover;
+    object-position: center top;
+    /* max-height: 700px; */
+}
+
+ .modal-content .modal-header .close{
+    position: absolute;
+    right: 5vh;
+    top: 3vh;
+    z-index: 9;
+    color: white;
+    filter: drop-shadow(0px 0px 1px black);
+}
+
+ .modal-content .modal-header{
+    border-bottom: unset;
+    padding: unset;
+}
+
+ .modal-content{
+    background-color: unset;
+    border: unset;
+}
+
+.modal-dialog{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+span.name{
+    display: block;/* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 16px;
+    line-height: 16px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+   -webkit-line-clamp: 1; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
+span.modal-age{
+    padding-left: 3px
+}
+.close {
+    background: linear-gradient(0deg, #ff2372 5%, #ffc76b 200%);
+    border-radius: 50%;
+    box-shadow: 2px 3px 8px #333;
+    padding: 10px!important;
+    opacity: 1;
+    left: 5%;
+    top: 0;
+    text-shadow: none;
+    z-index: 99;
+    width: 55px;
+    height: 55px;
+}
+
+.close i{
+    color: #fff;
+    font-size: 34px;
+    width: 35px;
+}
+
+.carousel-control-next-icon, 
+.carousel-control-prev-icon{
+    display: none;
+}
+
+.carousel-indicators {
+    margin-bottom: 0;
+}
+.top-buttons{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    align-items: center;
+    padding: 10px;
+}
+.btn-block i{    
+    color: #fff;
+    font-size: 27px;
+    background: -webkit-linear-gradient(0deg, #ff2372 5%, #ffc76b 200%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 35px;
+}
+
+.btn-block{
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 2px 3px 8px #333;
+    padding: 0;
+    opacity: 1;
+    right: 5%;
+    top: 0;
+    text-shadow: none;
+    z-index: 99;
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border: 0px;
+}
+
+.btn-block:focus{
+    box-shadow: unset;
+}
+
+.btn-block:hover{
+    opacity: 0.8;
+}
+
+.carousel-indicators li{
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+    border-top: 0;
+    border-bottom: 0;
+    margin-bottom: 10px;
+    box-shadow: 0 0 8px 6px #00000057;
+    transition: .3s all;
+}
+
+.carousel-indicators .active{
+    background-color: #ff2372;
+}
+.modal-dialog-scrollable, .modal-dialog-scrollable .modal-content{
+    max-height: calc(100%);
+    height: 100%;
+    border-radius: unset;
+}
+
+.modal-body{
+    background-color: #fff;
+}
+
+.modal-body .flyrt--buttons{
+    position: absolute;
+    display: flex;
+    width: 100%;    
+    justify-content: center;    
+    z-index: 999;
+    margin-top: -90px;
+}
+
+.modal-body .div-buttons{
+    padding-bottom: 30px;
+    padding-top: 15px;
+}
+
+.need-plan .blur{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    backdrop-filter: blur(8px);
+}
+
+.modal-age{
+    font-size: 1.3rem;
+}
+
+@media(min-width: 767px){
+    .likes#likes-content .tabs{
+        width: 50%!important;
+    }
+
+    .top-options{
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: unset;
+        padding: 0 25%;
+    }
+
+    .modal-dialog-scrollable .modal-body{
+        overflow-y: hidden;
+    }
+
+    .modal-dialog-scrollable, .modal-dialog-scrollable .modal-content{
+        max-height: unset;
+        height: unset;
+    }
+
+    .modal-body{
+        background-color: transparent;
+    }    
+
+    .likes#likes-content{
+        justify-content: center;
+        display: flex;
+    }
+
+    .carousel-inner{
+        border-radius: 25px 25px 0 0;
+        height: 100%;
+    }
+    
+    .div-buttons{
+        border-radius: 0 0 25px 25px;
+        padding: 45px 10px 10px 10px;
+    }
+
+    .modal-body .flyrt--buttons{
+        position: unset;
+        border-radius: 0 0 25px 25px;
+    }
+
+    .modal-body .div-buttons{
+        padding-bottom: 0px;
+    }
+}
+
+@media(max-width: 280px){
+    .close{
+        right: 1%;
+    }
+}

@@ -1,0 +1,48 @@
+html {
+    min-height: 100%;
+    background-color: #091b31;
+}
+
+body {
+    background: transparent;
+}
+
+.download#download-content .images .image {
+    width: 100%;
+}
+
+.download#download-content .images .image img {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    
+    .download#download-content .images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 40px 0 20px 0;
+    }
+
+    .download#download-content .images .image {
+        width: 50%;
+        padding: 0 10px;
+    }
+
+    .download#download-content .images .image a {
+        display: flex;
+    }
+
+    .download#download-content .images .image:nth-child(1) a {
+        justify-content: end;
+    }
+
+    .download#download-content .images .image:nth-child(2) a {
+        justify-content: start;
+    }
+
+    .download#download-content .images .image img {
+        width: 50%;
+    }
+
+}

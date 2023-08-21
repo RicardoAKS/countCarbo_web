@@ -1,0 +1,166 @@
+/**
+ *
+ * Script do layout
+ *
+ * @author Emprezaz
+ *
+ **/
+ (function($, URL, Helpers) {
+
+    var chatControl = function() {
+
+        $('body').on('click', '.select-user', function() {
+
+            var type = $(this).attr('data-type');
+            var name = $(this).attr('data-name');
+            var file = $(this).attr('data-photo');
+
+            if (file != "") {
+                photo = URL + '/assets/img/profile/' + id + '/photos/' + file + '';
+            } else {
+                photo = URL + '/assets/img/nonprofile.jpg';
+            }
+
+            $.ajax({
+                url: URL + '/getChat',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    id: id,
+                    type: type,
+                },
+                complete: function(response) {
+
+                    if (response.responseJSON.result) {
+
+                        var html = "";
+
+                        $('.chat-body .text-center').hide();
+
+                        $('.chat-body .box').show();
+
+                        $('.section-img').remove();
+
+                        $('.guest-chat').before('<div class="section-img" style="float:left; width: 90px;"><span class="thumbnail thumbnail-cad-prod btn-file" style="width: 90px; height:90px;"><span><img class="img-perfil icon rounded-circle" style="width:80px; height:80px;" src="' + photo + '" id="photo"></span><br /></span></div>');
+
+                        $('.guest-chat').html("");
+
+                        $('.guest-chat').html(name);
+
+                        $('.msg_history').html("");
+
+                        $('.type_msg').remove();
+
+                        $('.names-box .names').each(function(i) {
+
+                            if ($(this).find('.not-readed-messages').length && $(this).find('.not-readed-messages').attr('data-id') == id) {
+
+                                $(this).find('.not-readed-messages').remove().fadeOut(500);
+
+                            }
+
+                        });
+
+                        for (var i = 0; i <= response.responseJSON.result.length - 1; i++) {
+
+                            if (response.responseJSON.result[i]['sender'] != type) {
+
+                                var dateSend = response.responseJSON.result[i]['datesend'];
+                                var message = response.responseJSON.result[i]['message']
+
+                                html += '<div class="incoming_msg"><div class="received_msg"><div class="received_withd_msg"><p>' + message + '</p><span class="time_date">' + convertDateTime(dateSend) + '</span></div></div></div>';
+                            } else if (response.responseJSON.result[i]['sender'] == type) {
+
+                                var dateSend = response.responseJSON.result[i]['datesend'];
+                                var message = response.responseJSON.result[i]['message']
+
+                                html += '<div class="outgoing_msg"><div class="sent_msg"><p>' + message + '</p><span class="time_date">' + convertDateTime(dateSend) + '</span></div></div>';
+
+                            }
+
+                        }
+
+                        $('.msg_history').append(html);
+
+                        $('.msg_history').after('');
+
+                        var div = $('.msg_history');
+                        div.prop("scrollTop", div.prop("scrollHeight"));
+
+                    }
+
+                }
+            });
+
+        });
+
+        $('body').on('keypress', '.write_msg', function(e) {
+            var key = e.which;
+            if (key == 13) {
+                $('.msg_send_btn').click();
+                return false;
+            }
+        });
+
+        $('body').on('click', '.msg_send_btn', function() {
+
+            var id = $(this).attr('data-id');
+            var message = $('.write_msg').val();
+
+            $.ajax({
+                url: URL + '/setChat',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    id: id,
+                    message: message,
+                },
+                complete: function(response) {
+
+                    if (response.responseJSON.result) {
+
+                        var html = "";
+
+                        var dateSend = "Agora";
+
+                        html = '<div class="outgoing_msg"><div class="sent_msg"><p>' + message + '</p><span class="time_date">' + dateSend + '</span></div></div>';
+
+                        $('.msg_history').append(html);
+
+                        $('.write_msg').val('');
+
+                        var div = $('.msg_history');
+                        div.prop("scrollTop", div.prop("scrollHeight"));
+
+                    }
+
+                }
+            });
+
+        });
+
+
+    }
+
+    var convertDateTime = function(datetime) {
+
+        var stringDate = datetime.split(" ");
+        var date = stringDate[0];
+        var time = stringDate[1];
+
+        date = date.split("-");
+
+        stringDate = date[2] + "/" + date[1] + "/" + date[0] + " às " + time + "h";
+
+        return stringDate;
+    }
+
+
+    $(document).ready(function() {
+
+        chatControl();
+
+    });
+
+
+})($, URL, Helpers);

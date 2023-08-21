@@ -1,0 +1,301 @@
+body{
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background: linear-gradient( 180deg, #ff2372 5%, #ffc76b 64%)!important;
+    font-family: sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #fff; 
+}
+
+.message#message-content .container.out{
+    padding: 0;
+}
+.message#message-content .col-12 .container.inside{
+    padding: 0 0 50px 0;
+}
+
+.message#message-content .col-12 .container.inside.new{
+    padding: 46px 0 0 0;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    max-width: 100%;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+}
+
+.message#message-content .col-12 .container.container.inside.new.title {
+    border: 1px solid #fff;
+}
+
+.pt-messages {
+    padding: 46px 0 0 0!important;
+}
+
+.box-new-flyrt{
+    background-color: #fff;
+    height: 70px;
+    padding: 3px 15px 3px 15px;
+    margin: 0;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.box-new-flyrt .profile-message{
+    border-radius: 25px;
+    border: 0;
+    background-color: #eaeaea;
+    height: 45px;
+    margin: 0 auto;
+    width: 45px;
+    flex: none;
+    background-image: url(../../img/padrao/profile-user.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.box-new-flyrt .text{
+    font-size: .8em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.box-message{
+    /*border-radius: 25px;*/
+    background-color: #fff;
+    height: 70px;
+    padding: 3px 10px 3px 10px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+   /* box-shadow: 4px 4px 6px #00000067;*/
+}
+
+.box-message .profile-message{
+    border-radius: 25px;
+    background-color: #eaeaea;
+    height: 45px;
+    margin: 0 5px 0 0;
+    width: 45px;
+    flex: none;
+    background-image: url(../../img/padrao/profile-user.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.box-message h6 {
+    font-size: 14px;
+    margin: 0;
+    color: #091b31;
+}
+
+.box-message p{
+    font-family: 'gilroy','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-overflow: unset;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow-y: hidden;
+    font-size: 12px;
+    color: #767676;
+    word-break: break-all;
+}
+
+.box-message .text, .box-message .text .name{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-back{
+    height: 35px;
+    width: 35px;
+    background-image: url(../../img/icones/lineb.png);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(90deg);
+}
+
+.header-messages .input-group-prepend {
+    height: 30px;
+}
+
+.header-messages .input-group-prepend span{
+    height: 30px;
+    padding: 6px 5px;
+    background-color: #efefef;
+    border-radius: 25px 0 0 25px;
+    border: 0;
+}
+
+.header-messages .input-group-prepend .btn {
+    height: 30px;
+    padding: 6px 5px;
+    background-color: #fff;
+    border-radius: 25px 0 0 25px;
+    border: 0;
+}
+
+.header-messages input.form-control {
+    height: 30px;
+    border-radius: 0 25px 25px 0!important;
+    background-color: #efefef;
+    border: 0;
+    font-size: 13px;
+    font-family: 'gilroy ligth','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0 5px 0 0;
+}
+
+.messages-history .d-flex{
+    align-items: center;
+    justify-content: center;
+}
+
+.header-messages img{
+    height: 18px;
+}
+
+.header-messages h1.panton{
+    font-size:12px;
+    margin: 0;
+    color: #091b31;
+}
+
+.header-messages{
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    padding: 0 15px;
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+
+.content-message{
+    word-wrap: break-word;
+}
+
+.new-flyrts {
+    cursor: grab;
+}
+
+.new-flyrts.active, .new-flyrts.active * {
+    cursor: grabbing!important;
+}
+
+@media(min-width: 767px){
+    body {
+        background-size: 13%;
+    }
+
+    .message#message-content .container:first-child{
+        width: 60vh;
+    }
+
+    .message#message-content .container.out{
+        padding-top: 44px;
+        max-width: 80%;
+    }
+    .message#message-content .col-12 .container.inside {
+        padding-top: 50px;
+        /* padding-bottom: 60px; */
+        max-height: 65vh;
+    }
+
+    .message#message-content{
+        height: 100vh;
+        display: flex;
+        align-items: start;
+        padding-top: 35px;
+    }
+    .col-sm-12.col-12.p-0.messages-history .container.inside{
+        max-height: 65vh;
+        overflow-y: auto;
+    }
+    .col-sm-12.col-12.p-0.talkappend{
+        max-height: 85vh;
+        overflow-y: auto;
+        background-color: #eaeaea;
+    }
+
+    .talkappend{
+        display: none;
+    }
+    .messages-history .container.inside::-webkit-scrollbar{
+        width: 0px;
+    }
+    .messages-history .container.inside::-webkit-scrollbar-thumb {
+        background-color: #a7a7a7;
+        border-radius: 15px;
+    }
+    .messages-history .container.inside::-webkit-scrollbar-thumb:hover {
+        background: #c1c1c1;
+    }
+    .messages::-webkit-scrollbar{
+        width: 2px;
+    }
+    .messages::-webkit-scrollbar-thumb {
+        background-color: #a7a7a7;
+        border-radius: 15px;
+    }
+    .messages ::-webkit-scrollbar-thumb:hover {
+        background: #c1c1c1;
+    }
+    .container.out .row{
+        box-shadow: 2px 1px 12px black;
+        border-radius: 15px;
+    }
+    .header-messages{
+        border-radius: 15px 15px 0 0;
+        width: 60vh;
+    }
+    .talkappend{
+        border-radius: 15px;
+    }
+
+    .talk.page-hide#talk-content{
+        border-radius: 15px;
+    }
+}
+@media (min-height: 550px) and (min-width: 778px) {
+    .talk#talk-content .container {
+        height: 75vh!important;
+        padding-top: 15px;
+    }
+    .talk#talk-content .messages {
+        height: 92%;
+        margin-top: 15px;
+        overflow-y: auto;
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+	.container.inside.bg-white {
+		margin-bottom: 35px!important;
+	}
+}

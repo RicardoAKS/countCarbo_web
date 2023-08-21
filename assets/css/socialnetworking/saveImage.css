@@ -1,0 +1,133 @@
+body {
+    position: relative;
+}
+
+.container.px-0 {
+    padding: 0 10px!important;
+}
+
+.image-div{
+	border-radius: 10px;
+	overflow: hidden;
+    max-height: 200px;
+    width: 200px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    word-break: break-word;
+    position: relative;
+    filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.336));
+    padding: 5px;
+    transition: all .3s linear;
+    color: #000;
+}
+
+.image-div::before {
+	content: "";
+	height: 0;
+	float: left;
+	padding-bottom: 100%;
+}
+
+.image-div::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+    margin-top: 20px;
+}
+
+.area {
+    grid-column: span 1;
+    margin-top: 10px;
+    min-height: 150px;
+}
+
+.area .photo p {
+    display: none;
+}
+
+.area:nth-child(1) .photo p {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #ff2372;
+}
+
+.photo{
+    position: absolute;
+	border-radius: 10px;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+	overflow: hidden;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    word-break: break-word;
+    filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.336));
+    cursor: grab;
+    align-items: flex-end;
+    height: 150px;
+}
+
+.photo.active {
+    cursor: grabbing!important;
+}
+
+.photo::before {
+	content: "";
+	height: 0;
+	float: left;
+	padding-bottom: 100%;
+}
+
+.photo::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.swal2-popup .swal2-image {
+    margin: 0!important;
+}
+
+.btn-back{
+    height: 35px;
+    width: 35px;
+    background-image: url(../../img/icones/lineb.png);
+    background-size: 55%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(90deg);
+    filter: invert();
+}
+
+.div-button-continue {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding: 10px;
+    background-color: #fff;
+    z-index: 100;
+}
+
+@media screen and (min-width: 768px) {
+    
+    .div-button-continue {
+        position: unset;
+        padding: 0px;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+}

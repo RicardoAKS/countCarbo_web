@@ -1,0 +1,245 @@
+// Constants
+
+$cardsTotal: 3;
+$cardsWidth: 420px;
+$cardsHeight: 550px;
+$cardsPositionOffset: 10px;
+$cardsScaleOffset: .02;
+
+$colour-white: #FFF;
+$colour-orange: #F0A435;
+$colour-grey: #6E6E6E;
+$colour-text: #444;
+$colour-background: #F3F3F3;
+
+%backgroundContain {
+	background: center center no-repeat transparent;
+	background-size: contain;
+}
+
+
+
+// Resets
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	min-width: 320px;
+	font-family: "Nunito", sans-serif;
+	font-weight: 700;
+	color: $colour-text;
+	overflow: hidden;
+	background: $colour-background;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-moz-font-feature-settings: "liga" on;
+}
+
+*,
+*:before,
+*:after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+
+
+// Main
+
+#app {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
+
+
+
+// Loading
+
+$loadingSize: 125px;
+
+%loadingPosition {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -($loadingSize / 2);
+	margin-top: -($loadingSize / 2);
+}
+
+%loadingBorder {
+	width: $loadingSize;
+	height: $loadingSize;
+	border-radius: 50%;
+	border: 4px solid $colour-white;
+}
+
+.loading {
+	z-index: 10;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba($colour-orange, .5);
+  
+  .loading-icon {
+    width: $loadingSize;
+	  height: $loadingSize;
+	  @extend %loadingPosition;
+    
+    &:before,
+    &:after {
+      content: "";
+	    display: block;
+	    @extend %loadingPosition;
+	    @extend %loadingBorder;
+    }
+    
+    &:before {
+      z-index: 0;
+	    animation: 1s pulse infinite linear;
+    }
+    
+    &:after {
+      z-index: 10;
+	    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/617753/loading-default.jpg") center center no-repeat #FFF;
+	    background-size: cover;
+    }
+  }
+}
+
+@keyframes pulse {
+	0% { opacity: 0; transform: scale(0.8); }
+	50% { opacity: 1; }
+	100% { opacity: 0; transform: scale(1.5); }
+}
+
+
+
+// Card
+
+$defaultTranslation: $cardsPositionOffset * $cardsTotal;
+$defaultScale: 1 - ($cardsScaleOffset * $cardsTotal);
+
+.card-container {
+	position: relative;
+	top: 50%;
+	margin: 0 auto;
+	width: $cardsWidth;
+	height: $cardsHeight + ($cardsPositionOffset * ($cardsTotal - 1));
+	transform: translateY(-50%);
+}
+
+.card {
+	pointer-events: none;
+	z-index: 0;
+	opacity: 0;
+	left: 0;
+	top: 0;
+	position: absolute;
+	padding: 15px 15px 30px;
+	width: 420px;
+	height: $cardsHeight;
+	border-radius: 8px;
+	background: $colour-white;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+	transform: translateY($defaultTranslation) scale($defaultScale);
+	transform-origin: 50% 100%;
+	will-change: transform, opacity;
+  
+  // Cascade the cards by translation and scale based on their nth-child index  
+  @for $i from 1 through $cardsTotal {
+    $index: $i - 1;
+    $translation: $cardsPositionOffset * $index;
+    $scale: 1 - ($cardsScaleOffset * $index);
+
+    &:nth-child(#{$i}) {
+      opacity: 1;
+      z-index: $cardsTotal - $index;
+      transform: translateY($translation) scale($scale);
+    }
+  }
+    
+  &.current {
+	  pointer-events: auto;
+  }
+    
+  &.animated {
+	  transition: all .5s cubic-bezier(.175, .885, .32, 1.275);
+  }
+  
+  .image {
+    margin: 0 auto 30px 0;
+    width: 420px - (15px * 2);
+    height: 420px - (15px * 2);
+    @extend %backgroundContain;
+    
+    $imageIconSize: 200px;
+    
+    .image-icon {
+      position: relative;
+      left: 50%;
+      top: 50%;
+      width: $imageIconSize;
+      height: $imageIconSize;
+      transform: translateX(-50%) translateY(-50%);
+      background: center center no-repeat transparent;
+      background-size: contain;
+      
+      &.match {
+        background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/617753/icon-approve.svg");
+      }
+      
+      &.pass {
+	      background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/617753/icon-reject.svg");
+      }
+    }
+  }
+  
+  .name {
+    margin: 0 auto 30px 0;
+    display: block;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  
+  $starSize: 24px;
+  $starSpacing: $starSize;
+  $starTotal: 5;
+  
+  .stars {
+    margin: 0 auto;
+    width: ($starSize * $starTotal) + ($starSpacing * ($starTotal - 1));
+    
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    .active,
+    .inactive {
+      float: left;
+      margin-right: $starSpacing;
+      width: $starSize;
+      height: $starSize;
+      @extend %backgroundContain;
+      
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    
+    .active {
+	    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/617753/star-active.svg");
+    }
+
+    .inactive {
+	    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/617753/star-inactive.svg");
+    }
+  }
+}

@@ -1,0 +1,139 @@
+.btn-back{
+    height: 35px;
+    width: 35px;
+    background-image: url(../../img/icones/lineb.png);
+    background-size: 55%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(90deg);
+}
+.header-follow .input-group-prepend {
+    height: 30px;
+}
+.header-follow .col-6 {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+.header-follow .col-6.back {
+    justify-content: start;
+}
+.header-follow .col-6.panton {
+    justify-content: flex-end;
+}
+
+.header-follow .input-group-prepend span{
+    height: 30px;
+    padding: 6px 5px;
+    background-color: #eaeaea;
+    border-radius: 25px 0 0 25px;
+    border: 0;
+}
+
+.header-follow .input-group-prepend .btn {
+    height: 30px;
+    padding: 6px 5px;
+    background-color: #fff;
+    border-radius: 25px 0 0 25px;
+    border: 0;
+}
+
+.header-follow input.form-control {
+    height: 30px;
+    border-radius: 0 25px 25px 0!important;
+    background-color: #eaeaea;
+    border: 0;
+    font-size: 13px;
+    font-family: 'gilroy ligth','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0 5px 0 0;
+}
+
+.header-follow img{
+    height: 18px;
+}
+
+.header-follow h1.panton{
+    font-size: 15px;
+    display: flex;
+    margin: 0;
+    color: #091b31;
+    align-items: center;
+}
+@media(max-width:425px){
+    .header-follow h1.panton{
+        
+        justify-content: flex-end;
+    }
+}
+.header-follow{
+    position: fixed;
+    justify-content: center;
+    width: 100%;
+    background-color: #fff;
+
+}
+
+.box-follow{
+    border-radius: 25px;
+    background-color: white;
+    height: 56px;
+    padding: 3px 10px 3px 3px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.box-follow:hover{
+    text-decoration: none;
+}
+
+.box-follow .profile-follow{
+    border-radius: 25px;
+    background-color: #eaeaea;
+    height: 45px;
+    margin: 0 5px 0 0;
+    width: 45px;
+    flex: none;
+    background-image: url(../../../img/padrao/profile-user.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.box-follow h6 {
+    font-size: 14px;
+    margin: 0;
+    color: #DF272F;
+}
+
+.box-follow p{
+    font-family: 'gilroy','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-overflow: unset;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow-y: hidden;
+    font-size: 12px;
+    color: #767676;
+}
+
+nav{
+    display: none;
+}
+
+@media screen and (min-width: 767px) {
+    .header-follow{
+       top: 0;
+    }
+
+    .follows{
+        margin-top: 100px;
+        padding: 0!important;
+    }
+}
+
+@media(min-width: 768px){
+    .container:first-child{
+        width: 50%!important;
+    }
+}

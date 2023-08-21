@@ -1,0 +1,218 @@
+.notify#notify-content {
+    height: 100vh;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    background-color: #fff;
+    width: 100%;
+    z-index: 1001;
+    min-height: 100vh;
+}
+
+.notify#notify-content .inside .date{
+    background-color: #eaeaea;
+    margin: 10px 25% 0 25%;
+    font-size: 12px;
+    color: #767676;
+    font-family: 'gilroy','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.notify#notify-content .container.out{
+    padding: 0;
+}
+.notify#notify-content .col-12 .container.inside{
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+
+.notify::-webkit-scrollbar{
+    width: 2px;
+}
+.notify::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+    border-radius: 25px;
+}
+.notify::-webkit-scrollbar-thumb:hover {
+    background-color: #6d6d6d;
+}
+
+.page-hide-notify{
+    overflow-y: auto;
+}
+
+.scroll-no{
+    overflow-y:hidden;
+}
+
+.box-notify{
+    border-radius: 25px;
+    background-color: #eaeaea;
+    height: 56px;
+    padding: 3px 10px 3px 3px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.box-notify .profile-notify{
+    border-radius: 25px;
+    background-color: #eaeaea;
+    height: 45px;
+    margin: 0 5px 0 0;
+    width: 45px;
+    flex: none;
+    background-image: url(../../../img/padrao/profile-user.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.box-notify h6 {
+    font-size: 14px;
+    margin: 0;
+    color: #DF272F;
+}
+
+.box-notify p{
+    font-family: 'gilroy','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-overflow: unset;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow-y: hidden;
+    font-size: 12px;
+    color: #767676;
+}
+.col-6.back{
+    z-index: 9;
+}
+.btn-back{
+    height: 35px;
+    width: 35px;
+    background-image: url(../../../img/icones/lineb.png);
+    background-size: 55%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(90deg);
+}
+
+.header-notifys .input-group-prepend {
+    height: 30px;
+}
+.header-notifys .col-6 {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+.header-notifys .col-6.back {
+    justify-content: start;
+}
+.header-notifys .col-6.panton {
+    justify-content: flex-end;
+}
+
+.header-notifys .input-group-prepend span{
+    height: 30px;
+    padding: 6px 5px;
+    background-color: #eaeaea;
+    border-radius: 25px 0 0 25px;
+    border: 0;
+}
+
+.header-notifys .input-group-prepend .btn {
+    height: 30px;
+    padding: 6px 5px;
+    background-color: #fff;
+    border-radius: 25px 0 0 25px;
+    border: 0;
+}
+
+.header-notifys input.form-control {
+    height: 30px;
+    border-radius: 0 25px 25px 0!important;
+    background-color: #eaeaea;
+    border: 0;
+    font-size: 13px;
+    font-family: 'gilroy ligth','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0 5px 0 0;
+}
+
+.notifys-history .d-flex{
+    align-items: center;
+    justify-content: center;
+}
+
+.header-notifys img{
+    height: 18px;
+}
+
+.header-notifys h1.panton{
+    font-size:15px;
+    margin: 0;
+    color: #091b31;
+}
+
+.header-notifys{
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    padding: 0 15px;
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+
+@media(min-width: 767px){
+    .notify#notify-content .container.out{
+        padding-top: 0;
+    }
+    .notify#notify-content .col-12 .container.inside {
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+    .notify#notify-content .header-notifys{
+        max-width: 46%;
+    }
+    .notify#notify-content{
+        
+        display: flex;
+        align-items: center;
+        background-size: 13%;
+    }
+    .col-md-6.col-sm-12.col-12.p-0.notifys-history{
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+    .col-md-6.col-sm-12.col-12.p-0.talkappend{
+        max-height: 85vh;
+        overflow-y: auto;
+        background-color: #eaeaea;
+    }
+    .notify#notify-content {
+        height: fit-content;
+        min-height: 150px;
+        max-height: 300px;
+        align-items: center;
+        position: fixed;
+        top: 50px;
+        background-color: #fff;
+        padding-top:0px;
+        width: 300px;
+        z-index: 999;
+        right: 81px;
+        overflow: auto;
+        border-radius: 0 0 25px 25px;
+        box-shadow: 0px 0px 3px 3px #0000001a;
+    }
+    .notify#notify-content .header-notifys{
+        display: none!important;
+    }
+
+    .scroll-no{
+        overflow:auto;
+    }
+}
