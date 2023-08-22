@@ -15,7 +15,7 @@
 **/
 $env = 'prod';
 
-if(!empty($_SERVER['SERVER_NAME']) and ($_SERVER['SERVER_NAME'] === 'localhost'  or $_SERVER['SERVER_NAME'] === '192.168.100.200')){
+if(!empty($_SERVER['SERVER_NAME']) and ($_SERVER['SERVER_NAME'] === 'localhost'  or $_SERVER['SERVER_NAME'] === '192.168.1.6')){
   $env = 'dev';
 }
 

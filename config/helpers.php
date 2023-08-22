@@ -8,7 +8,7 @@
 *
 **/
 
-define('LOCAL_URL', '/countCarbo/');
+define('LOCAL_URL', '/');
 define('KEY_ENCRYPT', '@dO^b2jG3^gc');
 
 return array(
