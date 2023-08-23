@@ -30,5 +30,4 @@ if($env == 'prod'){
 	$error = false;
 }
 
-//$env = 'dev';
-error_reporting(1);
+error_reporting($error);

@@ -35,7 +35,8 @@ $commonPost = array(
 	'saveLogin'						=> 'LoginAdminController/saveLogin',
 	'logoutAdmin'					=> 'LoginAdminController/logoutAdmin',
 
-	'app/createUser'				=> 'AppController/createUser'
+	'app/createUser'				=> 'AppController/createUser',
+	'app/login'						=> 'AppController/login'
 );
 
 $commonRoutes = array_merge($commonRoutes, $commonPost);

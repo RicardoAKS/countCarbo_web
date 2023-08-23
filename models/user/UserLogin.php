@@ -43,22 +43,14 @@ class UserLogin
 		return $user;
 	}
 	
-	public function getData($username)
+	public function getData($email)
 	{
-		$phone = preg_replace("/[^0-9]/", "", $username);
-		$data = $this->pdoQuery->fetch('SELECT user.*, TIMESTAMPDIFF(YEAR, user.ageDate, NOW()) as ageDate, p.media as userphoto, user.phone as phoneWithoutCaracter, user.email, city.city FROM user
-		left outer join city on city.id = user.cityId
-		left outer join photos p on p.userid = user.id AND p.orderPhoto = (SELECT MIN(p2.orderPhoto) FROM photos p2 WHERE p2.userid = user.id)
-		WHERE user.email = :username OR user.phone = :phone', array(
-			':username' => mb_strtolower($username),
-			':phone'	=> $phone
+		return $this->pdoQuery->fetch('SELECT users.* FROM users
+		WHERE users.email = :email', array(
+			':email' => mb_strtolower($email)
 		));
-
-		$data['personalinformations'] = $this->getPersonalInformation($data['id']);
-
-		return $data;
-
 	}
+
 	public function getLoginByData($id)
 	{
 		$data = $this->pdoQuery->fetch('SELECT user.*, TIMESTAMPDIFF(YEAR, user.ageDate, NOW()) as ageDate, p.media as userphoto, user.phone as phoneWithoutCaracter, user.email, city.city FROM user
@@ -146,10 +138,10 @@ class UserLogin
 		return $infos;
 	}
 
-	private function checkUsernameAndPassword($username, $password, $dbUsername, $dbPassword, $dbPhone, $dbEmail)
+	private function checkEmailAndPassword($email, $password, $dbEmail, $dbPassword)
 	{
 
-		if(strtolower($username) != strtolower($dbEmail) && strtolower($username) != strtolower($dbPhone)){
+		if(strtolower($email) != strtolower($dbEmail)){
 			return false;
 		}
 		
@@ -167,16 +159,7 @@ class UserLogin
 
 		$pdo = array(
 			'id'         		=> $data['id'],
-			'name'       		=> $data['username'],
 			'password'   		=> $data['password'],
-			'validation' 		=> $data['validation'],
-			'sex'      			=> $data['sex'],
-			'ageDate'			=> $data['ageDate'],
-			'validationcode'    => $data['validationcode'],
-			'photo'				=> $data['photo'],
-			'preference'		=> $data['preference'],
-			'status'			=> $data['status'],
-			'userphoto'			=> $data['userphoto'],
 			'latitude'			=> $data['latitude'],
 			'longitude'			=> $data['longitude'],
 			'email'				=> $data["email"] != null ? mb_strtolower($data['email']) : "",
@@ -189,14 +172,13 @@ class UserLogin
 
 	}
 
-	private function setLogin($username, $password)
+	private function setLogin($email, $password)
 	{
 
-		$data = $this->getData($username);
+		$data = $this->getData($email);
 
-		if($data and $this->checkUsernameAndPassword($username, $password, $data['username'], $data['password'], $data['phone'], $data['email'])){
+		if($data and $this->checkEmailAndPassword($email, $password, $data['email'], $data['password'])){
 
-			$this->saveData($data);
 			return true;
 		}
 
@@ -206,18 +188,13 @@ class UserLogin
 
 
 
-	public function login($username, $password, $cript)
+	public function login($email, $password)
 	{
 	
-		if($this->setLogin($username, hash('sha1',$password)) && !$cript){
+		if($this->setLogin($email, hash('sha1', $password))){
 
-			$data = $this->getData($username);
-			return $data["id"];
-
-		}else if($this->setLogin($username, $password) && $cript){
-
-			$data = $this->getData($username);
-			return $data["id"];
+			$data = $this->getData($email);
+			return $data;
 
 		}
 

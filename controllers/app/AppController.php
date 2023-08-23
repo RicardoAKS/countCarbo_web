@@ -43,4 +43,47 @@ class AppController extends Controller {
         ));
     }
 
+    public function login()
+    {
+        $this->getHeaders();
+
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if(!isset($data["email"]) || !isset($data["password"])){
+            http_response_code(403);
+            echo json_encode(array(
+                'message' => 'Faltou ' . !isset($data["email"]) ? 'o e-mail' : 'a senha' . ' para o login de usuário'
+            ));
+            exit;
+        }
+
+        $email    = $data["email"];
+        $password = $data["password"];
+
+        $userLogin = new UserLogin();
+        $user      = $userLogin->login($email, $password);
+
+        if(!$user){
+            $response = $userLogin->getData($email);
+
+            if($response){
+                http_response_code(403);
+                echo json_encode(array(
+                    'message' => 'Usúario ou Senha incorretos'
+                ));
+                exit;
+            }
+        }
+
+        if($user){
+            $userData = $user;
+            unset($userData["password"]);
+        }
+
+        echo json_encode(array(
+            'user'  => $userData,
+            'token' => $userData ? base64_encode("$email:$user[password]") : null
+        ));
+    }
+
 }
