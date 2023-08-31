@@ -45,11 +45,7 @@
     min-height: 100vh;
     width: 100%;
     padding: 57px 0;
-    background: rgb(179,191,184);
-    background: -moz-linear-gradient(180deg, #ff2372 5%, #091b31 64%);
-    background: -webkit-linear-gradient(180deg, #ff2372 5%, #091b31 64%);
-    background: linear-gradient(180deg, #ff2372 5%, #091b31 64%);   
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b3bfb8",endColorstr="#7e8d85",GradientType=1);
+    background: #25a55f;
     margin-bottom: -250px;
 }
 
@@ -70,7 +66,7 @@ section form a:hover {
     width: 100%;
 }
 .btn-outline-light{
-    background-color: #ff2372;
+    background-color: #25a55f;
     color: #fff;
     border-color: #fff;
     border-radius: 10px;
@@ -80,8 +76,8 @@ section form a:hover {
 }
 .btn-outline-light:hover {
     background-color: #fff;
-    color: #ff2372;
-    border-color: #ff2372;
+    color: #25a55f;
+    border-color: #25a55f;
 }
 
 #recover-email{

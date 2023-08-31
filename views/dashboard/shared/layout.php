@@ -29,7 +29,13 @@ $admName    = $this->helpers["AdmSession"]->get('username');
     <header class="page-header">
         <div class="expanded row">
             <div class="col-lg-2 logo">
-                <img src="<?php echo $url; ?>/assets/img/padrao/site-flyrt-textr.png">
+                <svg width="50" height="50" viewBox="0 0 280 280" class="css-1j8o68f">
+                    <defs id="SvgjsDefs2204"></defs>
+                    <g id="SvgjsG2206" featurekey="symbolFeature-0" transform="matrix(2,0,0,2,40,40)" fill="#25a55f">
+                        <path xmlns="http://www.w3.org/2000/svg" d="M72,27c-7.769,0-13.387,4.513-17.002,8.865C54.95,14.95,44,3,44,3l-8,6c0,0,8.948,9.946,8.998,26.859  C41.382,31.509,35.766,27,28,27C14,27,5,36,5,50c0,25,45,50,45,50s45-25,45-50C95,36,86,27,72,27z"></path>
+                        <path xmlns="http://www.w3.org/2000/svg" d="M83,0C66.983-0.018,59,8,59,24C74.999,24,83.017,15.982,83,0z"></path>
+                    </g>
+                </svg>
             </div>
             <!-- navbar right -->
             <div class="col-lg-10 col-md-12 navbar-right text-center" style="background-color: #fff;">
@@ -38,7 +44,13 @@ $admName    = $this->helpers["AdmSession"]->get('username');
                 </div>
 
                 <div class="mobile logo">
-                    <img src="<?php echo $url; ?>/assets/img/padrao/site-flyrt-textr.png">
+                    <svg width="100" height="50" viewBox="0 0 280 280" class="css-1j8o68f">
+                        <defs id="SvgjsDefs2204"></defs>
+                        <g id="SvgjsG2206" featurekey="symbolFeature-0" transform="matrix(2,0,0,2,40,40)" fill="#25a55f">
+                            <path xmlns="http://www.w3.org/2000/svg" d="M72,27c-7.769,0-13.387,4.513-17.002,8.865C54.95,14.95,44,3,44,3l-8,6c0,0,8.948,9.946,8.998,26.859  C41.382,31.509,35.766,27,28,27C14,27,5,36,5,50c0,25,45,50,45,50s45-25,45-50C95,36,86,27,72,27z"></path>
+                            <path xmlns="http://www.w3.org/2000/svg" d="M83,0C66.983-0.018,59,8,59,24C74.999,24,83.017,15.982,83,0z"></path>
+                        </g>
+                    </svg>
                 </div>
 
                 <ul class="nav pull-right">

@@ -48,8 +48,6 @@ class RecoverController extends Controller
 				return;
 			}
 	
-			
-	
 			$mailer = new MailerClass;
 			$sended = $mailer->emailConstruct(['SenderEmail'], 'contato@mercadotombini.com.br', $email['name'], "Email recebido de $email[name], $email[email]: $email[text]");	
 	

@@ -18,11 +18,9 @@ $commonRoutes = array(
 	'dashboard'					  => 'DashboardController/index',
 	'dashboard/login'			  => 'LoginAdminController/login',
 	'dashboard/recover-password'  => 'RecoverController/index',
-	'dashboard/ads'				  => 'AdsController/index',
-	'dashboard/approve-users'	  => 'ApproveController/index',
-	'dashboard/financial-report'  => 'ReportController/index',
-	'dashboard/complaints'		  => 'ComplaintsController/index',
-	'dashboard/withdrawals'		  => 'WithdrawDashboardController/index',
+	'dashboard/foods'			  => 'FoodController/index',
+	'dashboard/foods/page'		  => 'FoodController/index',
+	'dashboard/food/register'	  => 'FoodController/register',
 
 );
 

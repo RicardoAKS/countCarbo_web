@@ -26,23 +26,11 @@
                 </a>
             </li>
             <li>
-                <a href="<?php echo $url; ?>/dashboard/approve-users" class="<?=(in_array('approve-users', $params)) ? 'active' : '';?>">
-                    <i class="fas fa-users-cog"></i>
-                    Aprovar usuários
+                <a href="<?php echo $url; ?>/dashboard/foods" class="<?=(in_array('foods', $params) || in_array('food', $params)) ? 'active' : '';?>">
+                    <i class="fas fa-utensils"></i>
+                    Alimentos
                 </a>
             </li>
-            <li>
-                <a href="<?php echo $url; ?>/dashboard/complaints" class="<?=in_array('complaints', $params) ? 'active' : ''?>">
-                    <i class="fas fa-bullhorn"></i>
-                    Denúncias
-                </a>
-            </li>
-           <li>
-                <a href="<?php echo $url; ?>/dashboard/withdrawals" class="<?=in_array('withdrawals', $params) ? 'active' : ''?>">
-                    <i class="fas fa-dollar-sign"></i>
-                    Saques
-                </a>
-           </li>
             
         </ul>
     </div>

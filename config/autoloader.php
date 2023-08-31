@@ -21,12 +21,7 @@ $paths = array(
   'controllers/dashboard/login',
   'controllers/dashboard/recover',
   'controllers/dashboard/home',
-  'controllers/dashboard/approve',
-  'controllers/dashboard/report',
-  'controllers/dashboard/recovery',
-  'controllers/dashboard/ads',
-  'controllers/dashboard/complaints',
-  'controllers/dashboard/withdraw',
+  'controllers/dashboard/food',
   
   'controllers/site',
   'controllers/site/about',
@@ -39,7 +34,8 @@ $paths = array(
   'models/db',
   'models/user',
   'models/mail',
-  'models/sendgrid'
+  'models/sendgrid',
+  'models/food'
 );
 
 /**

@@ -68,8 +68,8 @@ $params = array();
 * Pegando os valores após o controller e a action na URL
 *
 **/
-if(count($split) > 2){
-  $params = array_slice($split, 2);
+if(count($split) > 3){
+  $params = array_slice($split, 3);
 }
 
 /**
@@ -87,6 +87,11 @@ $helpers = require 'config/helpers.php';
 if(count($split) > 1){
   $route = $split[0] . '/' . $split[1];
 }
+
+if(count($split) > 2){
+  $route = $route . '/' . $split[2];
+}
+
 
 /**
 *

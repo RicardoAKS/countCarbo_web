@@ -358,8 +358,8 @@ div.chart {
     border-color: #141414;
 }
 .btn-danger:hover{
-    background-color: #ff2372;
-    border-color: #ff2372;
+    background-color: #25a55f;
+    border-color: #25a55f;
 }
 
 .button i,
@@ -959,7 +959,7 @@ header.page-header .navbar-right ul.nav li i.fullscreen:hover {
 }
 
 .sidebar .sidebar-links ul li a:hover, .sidebar .sidebar-links ul li a.active {
-    background-color: #ff2372;
+    background-color: #25a55f;
     border-left: 3px solid #141517;
 }
 
