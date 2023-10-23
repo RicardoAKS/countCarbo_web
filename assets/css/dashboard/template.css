@@ -1201,6 +1201,10 @@ header.page-header .navbar-right ul.nav li i.fullscreen:hover {
     padding: .75rem 1.25rem;
 }
 
+.bg-success {
+    background-color: #25a55f!important;
+}
+
 @media screen and (max-width: 1230px) {
     .navbar-right {
         width: 100%;

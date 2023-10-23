@@ -11,7 +11,7 @@
 
     </div>
 
-    <?php if (count($foods) > 0) { ?>
+    <?php if (count($foods) >  0) { ?>
         <?php $start = 0; ?>
 
         <nav aria-label="Page navigation example" style="position: relative!important;">

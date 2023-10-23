@@ -33,50 +33,39 @@
     }
 
     // Verificando o nome de usuário
-    var checkUsernameInDatabase = (username) => {
+    var checkUsernameInDatabase = async (username) => {
 
-        var checkUser;
-
-        $.ajax({
+        var checkUser = await $.ajax({
             url: PATH + '/checkUsernameAdm',
             dataType: 'json',
             type: 'POST',
             async: false,
             data: {
                 username: username,
-            },
-            complete: function(response){
-                checkUser = response.responseJSON.result;
             }
         });
 
-        return checkUser;
+        return checkUser.result;
 
     }
     // Verificando o email do usuário
-    var checkEmailInDatabase = (email) => {
+    var checkEmailInDatabase = async (email) => {
 
-        var checkUser;
-
-        $.ajax({
+        var checkUser = await $.ajax({
             url: PATH + '/checkEmailAdm',
             dataType: 'json',
             type: 'POST',
             async: false,
             data: {
                 email: email,
-            },
-            complete: function(response){
-                checkUser = response.responseJSON.result;
             }
         });
 
-        return checkUser;
-
+        return checkUser.result;
     }
 
     // Validação dos campos
-    var validateFields = () => {
+    var validateFields = async () => {
 
         var username = $('input[name="username"]').val();
         var password = $('input[name="password"]').val();
@@ -103,7 +92,8 @@
 
         }
 
-        if(!checkUsernameInDatabase(username)){
+        let checkUsername = await checkUsernameInDatabase(username)
+        if(!checkUsername){
 
             swal({
                 type: 'error',
@@ -114,27 +104,17 @@
 
         }
 
-        if(!checkPasswordInDatabase(username, password)){
-
-            swal({
-                type: 'error',
-                title: 'Erro - Login',
-                text: 'Senha incorreta',
-            });
-            return false;
-
-        }
-
         return true;
 
     }
 
     // Função parar executar o login
-    var login = () => {
-        var username = $('input[name="username"]').val();
+    var login = async () => {
         
-        if(validateFields()){
-
+        if(await validateFields()){
+            
+            var username = $('input[name="username"]').val();
+            
             $.ajax({
                 url: PATH + '/saveLogin',
                 type: 'POST',
@@ -184,12 +164,14 @@
                 showCancelButton: true,
                 cancelButtonText: "Fechar",
                 confirmButtonText: "Confirmar email",
-            }).then(result => {
+            }).then(async result => {
 
-                var email = $('input[name="emailRecover"]').val();
                 if(result.value){
+                    
+                    var email = $('input[name="emailRecover"]').val();
 
-                    if (checkEmailInDatabase(email)) {
+                    let checkEmail = await checkEmailInDatabase(email);
+                    if (checkEmail) {
 
                         $.ajax({
                             url: PATH + "/admin/sendRecover",

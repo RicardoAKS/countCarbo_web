@@ -16,8 +16,7 @@ class FoodData {
             $pagination = "LIMIT $page, $limit";
         }
         
-        $foods = $this->pdoQuery->fetchAll("SELECT f.*, cf.name as category_name, wmf.name as weight_measure FROM foods f
-        INNER JOIN category_foods cf ON cf.id = f.category_foods_id
+        $foods = $this->pdoQuery->fetchAll("SELECT f.*, wmf.name as weight_measure FROM foods f
         INNER JOIN weight_measure_food wmf ON wmf.id = f.weight_measure_food_id
         $pagination");
 
@@ -32,9 +31,8 @@ class FoodData {
 
     public function countAllFoods() 
     {
-        return $this->pdoQuery->fetch("SELECT COUNT(f.id) as countFoods FROM foods f
-        INNER JOIN category_foods cf ON cf.id = f.category_foods_id
-        INNER JOIN weight_measure_food wmf ON wmf.id = f.weight_measure_food_id");
+        return $this->pdoQuery->fetch("SELECT COUNT(fs.id) as countFoods FROM foods fs
+        INNER JOIN weight_measure_food wmf ON wmf.id = fs.weight_measure_food_id");
     }
 
     public function getAllCategories()

@@ -97,7 +97,7 @@ class FoodController extends Controller {
             );
             $this->view('dashboard/foods/register.php', array(
                 'categories'    => $categories,
-                'weigthMeasure' => $weigthMeasure 
+                'weigthMeasure' => $weigthMeasure
             ));
         } else {
             header('LOCATION: '.$this->helpers['URLHelper']->getURL().'/dashboard/login');

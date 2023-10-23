@@ -2,7 +2,7 @@ version: '3.1'
 services:
   php:
     build: .
-    image: dsafetech
+    image: count_carbo
     ports:
       - $PHP_PORT:80
     volumes:
