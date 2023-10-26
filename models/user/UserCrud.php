@@ -23,7 +23,9 @@ class UserCrud {
         $id = $this->pdoCrud->insert("users", $columns, $values, $pdo);
 
         if($id){
-            return base64_encode($email . ":" . sha1($password));
+            return array(
+                "token" => base64_encode($email . ":" . sha1($password))
+            );
         }
 
         return false;

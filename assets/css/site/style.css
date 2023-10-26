@@ -177,6 +177,11 @@ nav .links .register{
 .pointer{
     cursor: pointer;
 }
+
+.uppercase {
+    text-transform: uppercase;
+}
+
 @media(max-width: 992px){
     /* header */
     nav .logo img{

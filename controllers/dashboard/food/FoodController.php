@@ -30,7 +30,7 @@ class FoodController extends Controller {
 
             $this->setLayout(
                 'dashboard/shared/layout.php',
-                'Dashboard - Flyrt',
+                'Dashboard - CountCarbo',
                 array(
                     'assets/libs/bootstrap/css/bootstrap.min.css',
                     'assets/libs/fontawesome/css/all.min.css',
@@ -71,12 +71,12 @@ class FoodController extends Controller {
 
             $foodData = new FoodData;
 
-            $categories    = $foodData->getAllCategories();
-            $weigthMeasure = $foodData->getAllWeightMeasure();
+            $categories     = $foodData->getAllCategories();
+            $weigthMeasures = $foodData->getAllWeightMeasure();
 
             $this->setLayout(
                 'dashboard/shared/layout.php',
-                'Dashboard - Flyrt',
+                'Dashboard - CountCarbo',
                 array(
                     'assets/libs/bootstrap/css/bootstrap.min.css',
                     'assets/libs/fontawesome/css/all.min.css',
@@ -93,15 +93,48 @@ class FoodController extends Controller {
                     'assets/libs/bootstrap/js/bootstrap.bundle.js',
                     'assets/libs/sweetalert/dist/sweetalert2.all.min.js',
                     'assets/libs/bootstrap/js/bootstrap.min.js',
+                    'assets/js/dashboard/registerFood.js'
                 )
             );
             $this->view('dashboard/foods/register.php', array(
-                'categories'    => $categories,
-                'weigthMeasure' => $weigthMeasure
+                'categories'     => $categories,
+                'weigthMeasures' => $weigthMeasures
             ));
         } else {
             header('LOCATION: '.$this->helpers['URLHelper']->getURL().'/dashboard/login');
             exit;
         }
+    }
+
+    public function submitFood()
+    {
+
+        if(!$this->helpers['AdmSession']->has()){
+            http_response_code(401);
+            exit;
+        }
+
+        if(!isset($_POST["name"]) || !isset($_POST["category"]) || !isset($_POST["measure"]) || !isset($_POST["weight"]) || !isset($_POST["weightType"]) || !isset($_POST["kcal"]) || !isset($_POST["carbohydrate"])){
+            http_response_code(403);
+            echo json_encode(array(
+                'message' => 'Parâmetros insuficientes'
+            ));
+            exit;
+        }
+
+        $name         = addslashes($_POST["name"]);
+        $category_id  = addslashes($_POST["category"]);
+        $measure      = addslashes($_POST["measure"]);
+        $weight       = addslashes($_POST["weight"]);
+        $weightType   = addslashes($_POST["weightType"]);
+        $kcal         = addslashes($_POST["kcal"]);
+        $carbohydrate = addslashes($_POST["carbohydrate"]);
+
+        $foodCrud = new FoodCrud;
+        $submit   = $foodCrud->submit($name, $measure, $weight, $kcal, $carbohydrate, $category_id, $weightType);
+
+        echo json_encode(array(
+            'response' => $submit
+        ));
     }
 }

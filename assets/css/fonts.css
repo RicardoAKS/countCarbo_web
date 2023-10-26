@@ -1,79 +1,8 @@
 @font-face {
-    font-family: gilroy;
-    src: url(../libs/fonts/gilroy-extrabold.otf);
+    font-family: 'bourto';
+    src: url(../fonts/bourtoninline.ttf);
 }
 
-@font-face {
-    font-family: panton;
-    src: url(../libs/fonts/panton-black-caps.otf);
-}
-
-@font-face{
-    font-family: 'myriad pro';
-    src: url(../libs/fonts/myriad-pro-8.otf);
-}
-
-@font-face{
-    font-family: 'berlin sans fb';
-    src: url(../libs/fonts/berlin-sans-fb.ttf);
-}
-
-@font-face{
-    font-family: 'gilroy light';
-    src: url(../libs/fonts/gilroy-light.otf);
-}
-
-@font-face{
-    font-family: 'book antiqua regular';
-    src: url(../libs/fonts/book-antiqua-regular.ttf)
-}
-
-@font-face{
-    font-family: 'monteserrat black';
-    src: url(../libs/fonts/Montserrat-Black.ttf)
-}
-
-@font-face{
-    font-family: 'monteserrat bold';
-    src: url(../libs/fonts/Montserrat-Bold.ttf)
-}
-@font-face{
-    font-family: 'poppins';
-    src: url(../libs/fonts/Poppins-Regular.ttf)
-}
-
-.gilroy{
-    font-family: 'gilroy', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.panton{
-    font-family: 'panton', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.myriad{
-    font-family: 'myriad pro', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.berlin{
-    font-family: 'berlin sans fb', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.gilroy-light{
-    font-family: 'gilroy light','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.book-antiqua{
-    font-family: 'book antiqua regular', 'Franklin Gothic Medium', 'Arial Narrow', 'Arial, sans-serif'!important;
-}
-
-.monteserrat{
-    font-family: 'monteserrat black','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.monteserrat-bold{
-    font-family: 'monteserrat bold','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.poppins{
-    font-family: 'poppins','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.bourto{
+    font-family: 'bourto', Arial, sans-serif;
 }

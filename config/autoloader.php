@@ -35,7 +35,8 @@ $paths = array(
   'models/user',
   'models/mail',
   'models/sendgrid',
-  'models/food'
+  'models/food',
+  'models/hours'
 );
 
 /**
