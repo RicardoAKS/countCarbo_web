@@ -112,9 +112,21 @@ $admName    = $this->helpers["AdmSession"]->get('username');
         </div>
     </div>
 
+    <script defer type="text/javascript" src="<?=$url?>/assets/libs/jquery/jquery.js"></script>
+
     <script type="text/javascript">
         var PATH = "<?php echo $url; ?>";
         var Helpers = {};
+
+        $.ajaxSetup({
+            error: (error) => {
+
+                if(error.status == 401){
+                    window.location.href = PATH + "/dashboard/login";
+                }
+                
+            }
+        })
     </script>
 
     <!-- Scripts -->

@@ -22,19 +22,26 @@ $commonRoutes = array(
 	'dashboard/foods/page'		  => 'FoodController/index',
 	'dashboard/food/register'	  => 'FoodController/register',
 
+	'app/getHours'				  => 'AppController/getHours',
 );
 
 // rotas POST
 $commonPost = array(
 
 	// login dashboard
-	'checkUsernameAdm'				=> 'LoginAdminController/checkUsernameAdm',
-	'checkPasswordAdm'				=> 'LoginAdminController/checkPasswordAdm',
-	'saveLogin'						=> 'LoginAdminController/saveLogin',
-	'logoutAdmin'					=> 'LoginAdminController/logoutAdmin',
+	'checkUsernameAdm' => 'LoginAdminController/checkUsernameAdm',
+	'checkPasswordAdm' => 'LoginAdminController/checkPasswordAdm',
+	'saveLogin'    	   => 'LoginAdminController/saveLogin',
+	'logoutAdmin'  	   => 'LoginAdminController/logoutAdmin',
 
-	'app/createUser'				=> 'AppController/createUser',
-	'app/login'						=> 'AppController/login'
+	'submitFood'	   => 'FoodController/submitFood',
+
+	'app/createUser'   => 'AppController/createUser',
+	'app/login'		   => 'AppController/login',
+	'app/checkLogin'   => 'AppController/checkLogin',
+
+	'app/submitHour'   => 'AppController/submitHour',
+	'app/editHour'	   => 'AppController/editHour'
 );
 
 $commonRoutes = array_merge($commonRoutes, $commonPost);

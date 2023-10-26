@@ -45,8 +45,8 @@ class UserLogin
 	
 	public function getData($email)
 	{
-		return $this->pdoQuery->fetch('SELECT users.* FROM users
-		WHERE users.email = :email', array(
+		return $this->pdoQuery->fetch('SELECT users.id, users.name, users.last_name, users.email, users.create_date, users.password FROM users
+		WHERE users.email = :email AND users.status = 1', array(
 			':email' => mb_strtolower($email)
 		));
 	}
@@ -186,7 +186,17 @@ class UserLogin
 
 	}
 
+	public function checkLoginEncrypted($email, $password)
+	{
+		if($this->setLogin($email, $password)){
 
+			$data = $this->getData($email);
+			return $data;
+
+		}
+
+		return false;
+	}
 
 	public function login($email, $password)
 	{

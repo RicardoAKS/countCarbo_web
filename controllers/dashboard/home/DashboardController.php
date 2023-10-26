@@ -17,7 +17,7 @@ class DashboardController extends Controller
 
 				$this->setLayout(
 					'dashboard/shared/layout.php',
-					'Dashboard - Flyrt',
+					'Dashboard - CountCarbo',
 					array(
 						'assets/libs/bootstrap/css/bootstrap.min.css',
 						'assets/libs/fontawesome/css/all.min.css',

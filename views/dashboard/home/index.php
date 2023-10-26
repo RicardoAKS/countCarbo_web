@@ -4,7 +4,7 @@
 
         <div class="dashboard-title">
 
-            <h1 class="title">Bem-vindo ao seu dashboard, <?=$admName?>!</h1>
+            <h1 class="title bourto">Bem-vindo ao seu dashboard, <?=$admName?>!</h1>
         
         </div>
     

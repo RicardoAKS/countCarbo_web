@@ -30,4 +30,4 @@ if($env == 'prod'){
 	$error = false;
 }
 
-error_reporting($error);
+error_reporting(E_ALL);
