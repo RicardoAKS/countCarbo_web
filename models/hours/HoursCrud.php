@@ -44,4 +44,9 @@ class HoursCrud {
         return $this->pdoCrud->update("hours", $values, $clausule, $pdo);
     }
 
+    public function deleteHour($id)
+    {
+        return $this->pdoCrud->delete('hours', $id);
+    }
+
 }

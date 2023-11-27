@@ -21,27 +21,38 @@ $commonRoutes = array(
 	'dashboard/foods'			  => 'FoodController/index',
 	'dashboard/foods/page'		  => 'FoodController/index',
 	'dashboard/food/register'	  => 'FoodController/register',
-
-	'app/getHours'				  => 'AppController/getHours',
+	'dashboard/food/edit'	  	  => 'FoodController/edit',
 );
 
 // rotas POST
 $commonPost = array(
 
 	// login dashboard
-	'checkUsernameAdm' => 'LoginAdminController/checkUsernameAdm',
-	'checkPasswordAdm' => 'LoginAdminController/checkPasswordAdm',
-	'saveLogin'    	   => 'LoginAdminController/saveLogin',
-	'logoutAdmin'  	   => 'LoginAdminController/logoutAdmin',
+	'checkUsernameAdm' 		=> 'LoginAdminController/checkUsernameAdm',
+	'checkPasswordAdm' 		=> 'LoginAdminController/checkPasswordAdm',
+	'saveLogin'    	   		=> 'LoginAdminController/saveLogin',
+	'logoutAdmin'  	   		=> 'LoginAdminController/logoutAdmin',
 
-	'submitFood'	   => 'FoodController/submitFood',
+	'submitFood'	   		=> 'FoodController/submitFood',
+	'editFood'	   			=> 'FoodController/editFood',
+	'deleteFood'			=> 'FoodController/deleteFood',
 
-	'app/createUser'   => 'AppController/createUser',
-	'app/login'		   => 'AppController/login',
-	'app/checkLogin'   => 'AppController/checkLogin',
+	'app/createUser'   		=> 'AppController/createUser',
+	'app/login'		   		=> 'AppController/login',
+	'app/checkLogin'   		=> 'AppController/checkLogin',
 
-	'app/submitHour'   => 'AppController/submitHour',
-	'app/editHour'	   => 'AppController/editHour'
+	'app/submitHour'   		=> 'AppController/submitHour',
+	'app/editHour'	   		=> 'AppController/editHour',
+	'app/deleteHour'		=> 'AppController/deleteHour',
+	'app/getHours'			=> 'AppController/getHours',
+
+	'app/getFoodsByHourId'  => 'AppController/getFoodsByHourId',
+
+	'app/searchFoods'		=> 'AppController/searchFoods',
+	'app/getCategoryFoods'	=> 'AppController/getCategoryFoods',
+	'app/addFoodDiet'		=> 'AppController/addFoodDiet',
+	'app/getDiet'			=> 'AppController/getDiet',
+	'app/removeFoodDiet'	=> 'AppController/removeFoodDiet',
 );
 
 $commonRoutes = array_merge($commonRoutes, $commonPost);

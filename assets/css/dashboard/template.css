@@ -353,15 +353,6 @@ div.chart {
     text-transform: uppercase;
 }
 
-.btn-danger{
-    background-color: #141414;
-    border-color: #141414;
-}
-.btn-danger:hover{
-    background-color: #25a55f;
-    border-color: #25a55f;
-}
-
 .button i,
 .btn#dropdownMenuButton i {
     margin-right: 8px;

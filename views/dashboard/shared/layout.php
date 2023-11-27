@@ -16,7 +16,7 @@ $admName    = $this->helpers["AdmSession"]->get('username');
 
     <!-- Styles -->
     <?php $this->helpers['URLHelper']->getStyles(); ?>
-	<link rel="shortcut icon" href="<?php echo $url ?>/assets/img/padrao/favicon.png" type="image/x-icon">
+	<link rel="shortcut icon" href="<?php echo $url ?>/assets/img/icon.png" type="image/x-icon">
 
 </head>
 
@@ -112,26 +112,26 @@ $admName    = $this->helpers["AdmSession"]->get('username');
         </div>
     </div>
 
-    <script defer type="text/javascript" src="<?=$url?>/assets/libs/jquery/jquery.js"></script>
-
-    <script type="text/javascript">
+    <script type="text/javascript" src="<?=$url?>/assets/libs/jquery/jquery.js"></script>
+    
+    <script defer type="text/javascript">
         var PATH = "<?php echo $url; ?>";
         var Helpers = {};
-
+        
         $.ajaxSetup({
             error: (error) => {
-
+                
                 if(error.status == 401){
                     window.location.href = PATH + "/dashboard/login";
                 }
                 
             }
         })
-    </script>
+        </script>
 
+    <script defer type="text/javascript" src="<?=$url?>/assets/js/dashboard/menu.js"></script>
     <!-- Scripts -->
     <?php $this->helpers['URLHelper']->getScripts(); ?>
-    <script defer type="text/javascript" src="<?=$url?>/assets/js/dashboard/menu.js"></script>
 
 </body>
 

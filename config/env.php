@@ -15,7 +15,7 @@
 **/
 $env = 'prod';
 
-if(!empty($_SERVER['SERVER_NAME']) and ($_SERVER['SERVER_NAME'] === 'localhost'  or $_SERVER['SERVER_NAME'] === '192.168.1.20')){
+if(!empty($_SERVER['SERVER_NAME']) and ($_SERVER['SERVER_NAME'] === 'localhost'  or $_SERVER['SERVER_NAME'] === '192.168.1.12')){
   $env = 'dev';
 }
 
@@ -30,4 +30,4 @@ if($env == 'prod'){
 	$error = false;
 }
 
-error_reporting(E_ALL);
+error_reporting(1);

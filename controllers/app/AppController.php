@@ -8,7 +8,7 @@ class AppController extends Controller {
 
         $data = json_decode(file_get_contents("php://input"), true);
 
-        if(isset($data["name"]) && isset($data["lastName"]) && isset($data["email"]) && isset($data["password"])){
+        if(isset($data["name"]) && isset($data["last_name"]) && isset($data["email"]) && isset($data["password"])){
             $name      = filter_var($data["name"]);
             $last_name = filter_var($data["last_name"]);
             $email     = filter_var(mb_strtolower($data["email"]));
@@ -232,6 +232,54 @@ class AppController extends Controller {
         ));
     }
 
+    public function deleteHour()
+    {
+        $this->getHeaders();
+
+        $headers = getallheaders();
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if(!array_key_exists('authorization', $headers)){
+            http_response_code(407);
+            echo json_encode(array(
+                'message' => 'Não foi possível realizar o login por falta de autorização'
+            ));
+            exit;
+        }
+
+        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = explode(":", $token);
+        
+        $email    = $token[0];
+        $password = $token[1];
+
+        $userLogin  = new UserLogin();
+        $checkLogin = $userLogin->checkLoginEncrypted($email, $password);
+
+        if(!$checkLogin){
+            http_response_code(401);
+            echo json_encode(array(
+                'message' => 'Você não tem permissão para acessar está rota'
+            ));
+            exit;
+        }
+
+        if(!isset($data["id"])){
+            http_response_code(403);
+            echo json_encode(array(
+                'message' => 'Falta de parâmetros para iniciar o procedimento'
+            ));
+            exit;
+        }
+
+        $hoursCrud = new HoursCrud;
+        $response  = $hoursCrud->deleteHour($data["id"]);
+
+        echo json_encode(array(
+            'response' => $response
+        ));
+    }
+
     public function getHours()
     {
         $this->getHeaders();
@@ -273,7 +321,7 @@ class AppController extends Controller {
             $start = 0;
         }
 
-        $hoursData  = new HoursData;
+        $hoursData  = new HoursData();
         $totalHours = $hoursData->countAllHoursByUserId($checkLogin["id"]);
         $totalPages = ceil($totalHours / $limit);
 
@@ -282,6 +330,326 @@ class AppController extends Controller {
         echo json_encode(array(
             'hours'       => $hours,
             'count'       => $totalHours,
+            'total_pages' => $totalPages
+        ));
+    }
+
+    public function getCategoryFoods()
+    {
+        $this->getHeaders();
+
+        $headers = getallheaders();
+
+        if(!array_key_exists('authorization', $headers)){
+            http_response_code(407);
+            echo json_encode(array(
+                'message' => 'Não foi possível realizar o login por falta de autorização'
+            ));
+            exit;
+        }
+
+        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = explode(":", $token);
+        
+        $email    = $token[0];
+        $password = $token[1];
+
+        $userLogin  = new UserLogin();
+        $checkLogin = $userLogin->checkLoginEncrypted($email, $password);
+
+        if(!$checkLogin){
+            http_response_code(401);
+            echo json_encode(array(
+                'message' => 'Você não tem permissão para acessar está rota'
+            ));
+            exit;
+        }
+
+        $foodsData  = new FoodData();
+        $categories = $foodsData->getAllCategories();
+
+        echo json_encode($categories);
+    }
+
+    public function searchFoods()
+    {
+        $this->getHeaders();
+
+        $headers = getallheaders();
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if(!array_key_exists('authorization', $headers)){
+            http_response_code(407);
+            echo json_encode(array(
+                'message' => 'Não foi possível realizar o login por falta de autorização'
+            ));
+            exit;
+        }
+
+        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = explode(":", $token);
+        
+        $email    = $token[0];
+        $password = $token[1];
+
+        $userLogin  = new UserLogin();
+        $checkLogin = $userLogin->checkLoginEncrypted($email, $password);
+
+        if(!$checkLogin){
+            http_response_code(401);
+            echo json_encode(array(
+                'message' => 'Você não tem permissão para acessar está rota'
+            ));
+            exit;
+        }
+
+        if(!isset($data["categoryId"])){
+            http_response_code(403);
+            echo json_encode(array(
+                'message' => 'Falta de parâmetros para iniciar o procedimento'
+            ));
+            exit;
+        }
+
+        $limit      = 20;
+        $page       = isset($data["page"]) ? $data["page"] : 0;
+        $search     = isset($data["search"]) ? addslashes($data["search"]) : "";
+        $categoryId = addslashes($data["categoryId"]);
+
+        if ($page != 0) {
+            $start = ($limit * $page) - $limit;
+        } else {
+            $start = 0;
+        }
+
+        $foodsData  = new FoodData();
+        $totalFoods = $foodsData->countSearchFoods($search, $categoryId, $checkLogin["id"])["countFoods"];
+        $totalPages = ceil($totalFoods / $limit);
+
+        $foods = $foodsData->searchFoods($search, $categoryId, $checkLogin["id"], $limit, $start);
+
+        echo json_encode(array(
+            'foods'       => $foods,
+            'count'       => $totalFoods,
+            'total_pages' => $totalPages
+        ));
+    }
+
+    public function addFoodDiet()
+    {
+        $this->getHeaders();
+
+        $headers = getallheaders();
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if(!array_key_exists('authorization', $headers)){
+            http_response_code(407);
+            echo json_encode(array(
+                'message' => 'Não foi possível realizar o login por falta de autorização'
+            ));
+            exit;
+        }
+
+        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = explode(":", $token);
+        
+        $email    = $token[0];
+        $password = $token[1];
+
+        $userLogin  = new UserLogin();
+        $checkLogin = $userLogin->checkLoginEncrypted($email, $password);
+
+        if(!$checkLogin){
+            http_response_code(401);
+            echo json_encode(array(
+                'message' => 'Você não tem permissão para acessar está rota'
+            ));
+            exit;
+        }
+
+        if(!isset($data["foodsId"])){
+            http_response_code(403);
+            echo json_encode(array(
+                'message' => 'Falta de parâmetros para iniciar o procedimento'
+            ));
+            exit;
+        }
+
+        $foodsId = $data["foodsId"];
+
+        $foodsData = new FoodCrud();
+        $foods     = $foodsData->insertFoodsInDiet($foodsId, $checkLogin["id"]);
+
+        echo json_encode(array(
+            'foods' => $foods
+        ));
+    }
+
+    public function removeFoodDiet()
+    {
+        $this->getHeaders();
+
+        $headers = getallheaders();
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if(!array_key_exists('authorization', $headers)){
+            http_response_code(407);
+            echo json_encode(array(
+                'message' => 'Não foi possível realizar o login por falta de autorização'
+            ));
+            exit;
+        }
+
+        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = explode(":", $token);
+        
+        $email    = $token[0];
+        $password = $token[1];
+
+        $userLogin  = new UserLogin();
+        $checkLogin = $userLogin->checkLoginEncrypted($email, $password);
+
+        if(!$checkLogin){
+            http_response_code(401);
+            echo json_encode(array(
+                'message' => 'Você não tem permissão para acessar está rota'
+            ));
+            exit;
+        }
+
+        if(!isset($data["foodsId"])){
+            http_response_code(403);
+            echo json_encode(array(
+                'message' => 'Falta de parâmetros para iniciar o procedimento'
+            ));
+            exit;
+        }
+
+        $foodsId = $data["foodsId"];
+
+        $foodsData = new FoodCrud();
+        $foods     = $foodsData->removeFoodsInDiet($foodsId, $checkLogin["id"]);
+
+        echo json_encode(array(
+            'foods' => $foods
+        ));
+    }
+
+    public function getDiet()
+    {
+        $this->getHeaders();
+
+        $headers = getallheaders();
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if(!array_key_exists('authorization', $headers)){
+            http_response_code(407);
+            echo json_encode(array(
+                'message' => 'Não foi possível realizar o login por falta de autorização'
+            ));
+            exit;
+        }
+
+        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = explode(":", $token);
+        
+        $email    = $token[0];
+        $password = $token[1];
+
+        $userLogin  = new UserLogin();
+        $checkLogin = $userLogin->checkLoginEncrypted($email, $password);
+
+        if(!$checkLogin){
+            http_response_code(401);
+            echo json_encode(array(
+                'message' => 'Você não tem permissão para acessar está rota'
+            ));
+            exit;
+        }
+
+        $limit      = 20;
+        $page       = isset($data["page"]) ? $data["page"] : 0;
+        $search     = isset($data["search"]) ? addslashes($data["search"]) : "";
+        $categoryId = isset($data["categoryId"]) ? addslashes($data["categoryId"]) : null;
+
+        if ($page != 0) {
+            $start = ($limit * $page) - $limit;
+        } else {
+            $start = 0;
+        }
+
+        $foodsData  = new FoodData();
+        $totalFoods = $foodsData->countDiet($search, $categoryId, $checkLogin["id"])["countFoods"];
+        $totalPages = ceil($totalFoods / $limit);
+
+        $foods = $foodsData->getDiet($search, $categoryId, $checkLogin["id"], $limit, $start);
+
+        echo json_encode(array(
+            'foods'       => $foods,
+            'count'       => $totalFoods,
+            'total_pages' => $totalPages
+        ));
+    }
+
+    public function getFoodsByHourId()
+    {
+        $this->getHeaders();
+
+        $headers = getallheaders();
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if(!array_key_exists('authorization', $headers)){
+            http_response_code(407);
+            echo json_encode(array(
+                'message' => 'Não foi possível realizar o login por falta de autorização'
+            ));
+            exit;
+        }
+
+        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = explode(":", $token);
+        
+        $email    = $token[0];
+        $password = $token[1];
+
+        $userLogin  = new UserLogin();
+        $checkLogin = $userLogin->checkLoginEncrypted($email, $password);
+
+        if(!$checkLogin){
+            http_response_code(401);
+            echo json_encode(array(
+                'message' => 'Você não tem permissão para acessar está rota'
+            ));
+            exit;
+        }
+
+        if(!isset($data["hourId"])){
+            http_response_code(403);
+            echo json_encode(array(
+                'message' => 'Falta de parâmetros para iniciar o procedimento'
+            ));
+            exit;
+        }
+
+        $limit  = 20;
+        $page   = isset($data["page"]) ? $data["page"] : 0;
+        $hourId = addslashes($data["hourId"]);
+
+        if ($page != 0) {
+            $start = ($limit * $page) - $limit;
+        } else {
+            $start = 0;
+        }
+
+        $foodsData  = new FoodData();
+        $totalFoods = $foodsData->countFoodsByHourId($hourId, $checkLogin["id"])["countFoods"];
+        $totalPages = ceil($totalFoods / $limit);
+
+        $foods = $foodsData->getFoodsByHourId($hourId, $checkLogin["id"], $limit, $start);
+
+        echo json_encode(array(
+            'foods'       => $foods,
+            'count'       => $totalFoods,
             'total_pages' => $totalPages
         ));
     }

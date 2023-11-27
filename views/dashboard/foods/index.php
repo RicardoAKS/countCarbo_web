@@ -95,8 +95,8 @@
                             <td class="text-center"><?= $food["kcal"]; ?></td>
                             <td class="text-center"><?= $food["carbohydrate"]; ?></td>
                             <td class="text-center" style="min-width: 200px;">
-                                <a href="<?= $url; ?>/food/details/<?= $food['id'] ?>" class="btn btn-gray">Ver mais</a>
-                                <button type="button" class="btn btn-close delete-food" data-id="<?= $food['id'] ?>">Deletar</button>
+                                <a href="<?= $url; ?>/dashboard/food/edit/<?= $food['id'] ?>" class="btn btn-primary">Editar</a>
+                                <button type="button" class="btn btn-danger delete-food" data-id="<?= $food['id'] ?>">Deletar</button>
                             </td>
                         </tr>
                     <?php } ?>

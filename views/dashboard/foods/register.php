@@ -9,60 +9,76 @@
 
     <form id="submitFood" class="row p-3">
 
-        <div class="form-group pr-3 col-12 col-md-6">
-    
-            <label for="name">Nome</label>
-            <input class="form-control" name="name" type="text" id="name" placeholder="Ex: Maça" required maxlength="255"/>
-    
+        <div class="col-12 col-md-4 d-flex flex-wrap justify-content-center align-items-center mb-3">
+
+            <input type="file" hidden name="food-image" accept="image/png, image/jpeg, image/jpg" />
+            <div class="col-8 bg-secondary rounded d-flex flex-wrap justify-content-center align-items-center food-image pointer" style="aspect-ratio: 1/1">
+                <p class="text-white text-center">Clique aqui para adicionar uma imagem</p>
+            </div>
+
         </div>
 
-        <div class="form-group pr-3 col-12 col-md-6">
-    
-            <label for="category">Grupo Alimentício</label>
-            <select class="form-control uppercase" name="category" id="category" required>
-                <option hidden value="">Selecione uma categoria</option>
-                <?php foreach ($categories as $key => $category) { ?>
-                    <option value="<?=$category["id"]?>" class="uppercase"><?=$category["name"]?></option>
-                <?php } ?>
-            </select>
-    
-        </div>
+        <div class="d-flex flex-wrap col-md-8 col-12 px-0">
+            <div class="form-group col-md-6 col-12">
 
-        <div class="form-group pr-3 col-12 col-md-6">
-    
-            <label for="measure">Medida</label>
-            <input class="form-control" name="measure" type="text" id="measure" placeholder="Ex: Meia maça" required maxlength="255"/>
-    
-        </div>
+                <label for="name">Nome</label>
+                <input class="form-control" name="name" type="text" id="name" placeholder="Ex: Maça" required maxlength="255" />
 
-        <div class="form-group pr-3 col-12 col-md-6">
-    
-            <label for="weight">Peso</label>
+            </div>
 
-            <div class="d-flex flex-row flex-wrap">
-                <input class="form-control w-75 rounded-left" name="weight" type="tel" id="weight" placeholder="Ex: 100" style="border-radius: 0 0;" required number maxlength="11" />
-                <select class="form-control w-25 uppercase rounded-right" name="weightType" style="border-radius: 0 0;" required>
-                    <option hidden value="">Selecione uma medida</option>
-                    <?php foreach ($weigthMeasures as $key => $weigthMeasure) { ?>
-                        <option value="<?=$weigthMeasure["id"]?>" class="uppercase"><?=$weigthMeasure["name"]?></option>
+            <div class="form-group col-md-6 col-12">
+
+                <label for="category">Categoria</label>
+                <select class="form-control" name="category" id="category" required>
+                    <option hidden value="">Selecione uma categoria</option>
+                    <?php foreach ($categories as $key => $category) { ?>
+                        <option value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
                     <?php } ?>
                 </select>
+
             </div>
-    
+
+            <div class="form-group col-12 col-md-6">
+
+                <label for="measure">Medida</label>
+                <input class="form-control" name="measure" type="text" id="measure" placeholder="Ex: Meia maça" required maxlength="255" />
+
+            </div>
+
+            <div class="form-group col-12 col-md-6">
+
+                <label for="weight">Peso</label>
+
+                <div class="d-flex flex-row flex-wrap">
+                    <input class="form-control w-75 rounded-left" name="weight" type="tel" id="weight" placeholder="Ex: 100" style="border-radius: 0 0;" required number maxlength="11" />
+                    <select class="form-control w-25 rounded-right" name="weightType" style="border-radius: 0 0;" required>
+                        <option hidden value="">Selecione uma medida</option>
+                        <?php foreach ($weigthMeasures as $key => $weigthMeasure) { ?>
+                            <option value="<?= $weigthMeasure["id"] ?>"><?= $weigthMeasure["name"] ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-group col-12 col-md-6">
+
+                <label for="kcal">Kcal</label>
+                <input class="form-control" name="kcal" type="tel" id="kcal" placeholder="Ex: 52" required number maxlength="11" />
+
+            </div>
+
+            <div class="form-group col-12 col-md-6">
+
+                <label for="carbohydrate">Carboidratos</label>
+                <input class="form-control" name="carbohydrate" type="tel" id="carbohydrate" placeholder="Ex: 22.80G" required number maxlength="11" />
+
+            </div>
         </div>
 
-        <div class="form-group pr-3 col-12 col-md-6">
-    
-            <label for="kcal">Kcal</label>
-            <input class="form-control" name="kcal" type="tel" id="kcal" placeholder="Ex: 52" required number maxlength="11" />
-    
-        </div>
-
-        <div class="form-group pr-3 col-12 col-md-6">
-    
-            <label for="carbohydrate">Carboidratos</label>
-            <input class="form-control" name="carbohydrate" type="tel" id="carbohydrate" placeholder="Ex: 22.80G" required number maxlength="11"/>
-    
+        <div class="form-group col-12">
+            <label for="description">Descrição</label>
+            <textarea class="form-control" name="description" name="description" id="description"></textarea>
         </div>
 
         <div class="col-12 d-flex justify-content-end">
