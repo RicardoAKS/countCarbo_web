@@ -90,17 +90,9 @@ class AppController extends Controller {
     {
         $this->getHeaders();
 
-        $headers = getallheaders();
+        $data = json_decode(file_get_contents("php://input"), true);
 
-        if(!array_key_exists('authorization', $headers)){
-            http_response_code(407);
-            echo json_encode(array(
-                'message' => 'Não foi possível realizar o login por falta de autorização'
-            ));
-            exit;
-        }
-
-        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = base64_decode(str_replace("Bearer ", "", $data["authorization"]));
         $token = explode(":", $token);
         
         $email    = $token[0];
@@ -118,18 +110,9 @@ class AppController extends Controller {
     {
         $this->getHeaders();
 
-        $headers = getallheaders();
         $data = json_decode(file_get_contents("php://input"), true);
 
-        if(!array_key_exists('authorization', $headers)){
-            http_response_code(407);
-            echo json_encode(array(
-                'message' => 'Não foi possível realizar o login por falta de autorização'
-            ));
-            exit;
-        }
-
-        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = base64_decode(str_replace("Bearer ", "", $data["authorization"]));
         $token = explode(":", $token);
         
         $email    = $token[0];
@@ -177,18 +160,9 @@ class AppController extends Controller {
     {
         $this->getHeaders();
 
-        $headers = getallheaders();
         $data = json_decode(file_get_contents("php://input"), true);
 
-        if(!array_key_exists('authorization', $headers)){
-            http_response_code(407);
-            echo json_encode(array(
-                'message' => 'Não foi possível realizar o login por falta de autorização'
-            ));
-            exit;
-        }
-
-        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = base64_decode(str_replace("Bearer ", "", $data["authorization"]));
         $token = explode(":", $token);
         
         $email    = $token[0];
@@ -236,18 +210,9 @@ class AppController extends Controller {
     {
         $this->getHeaders();
 
-        $headers = getallheaders();
         $data = json_decode(file_get_contents("php://input"), true);
 
-        if(!array_key_exists('authorization', $headers)){
-            http_response_code(407);
-            echo json_encode(array(
-                'message' => 'Não foi possível realizar o login por falta de autorização'
-            ));
-            exit;
-        }
-
-        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = base64_decode(str_replace("Bearer ", "", $data["authorization"]));
         $token = explode(":", $token);
         
         $email    = $token[0];
@@ -284,18 +249,9 @@ class AppController extends Controller {
     {
         $this->getHeaders();
 
-        $headers = getallheaders();
         $data = json_decode(file_get_contents("php://input"), true);
 
-        if(!array_key_exists('authorization', $headers)){
-            http_response_code(407);
-            echo json_encode(array(
-                'message' => 'Não foi possível realizar o login por falta de autorização'
-            ));
-            exit;
-        }
-
-        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = base64_decode(str_replace("Bearer ", "", $data["authorization"]));
         $token = explode(":", $token);
         
         $email    = $token[0];
@@ -338,17 +294,9 @@ class AppController extends Controller {
     {
         $this->getHeaders();
 
-        $headers = getallheaders();
+        $data = json_decode(file_get_contents("php://input"), true);
 
-        if(!array_key_exists('authorization', $headers)){
-            http_response_code(407);
-            echo json_encode(array(
-                'message' => 'Não foi possível realizar o login por falta de autorização'
-            ));
-            exit;
-        }
-
-        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = base64_decode(str_replace("Bearer ", "", $data["authorization"]));
         $token = explode(":", $token);
         
         $email    = $token[0];
@@ -375,18 +323,9 @@ class AppController extends Controller {
     {
         $this->getHeaders();
 
-        $headers = getallheaders();
         $data = json_decode(file_get_contents("php://input"), true);
 
-        if(!array_key_exists('authorization', $headers)){
-            http_response_code(407);
-            echo json_encode(array(
-                'message' => 'Não foi possível realizar o login por falta de autorização'
-            ));
-            exit;
-        }
-
-        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = base64_decode(str_replace("Bearer ", "", $data["authorization"]));
         $token = explode(":", $token);
         
         $email    = $token[0];
@@ -439,18 +378,9 @@ class AppController extends Controller {
     {
         $this->getHeaders();
 
-        $headers = getallheaders();
         $data = json_decode(file_get_contents("php://input"), true);
 
-        if(!array_key_exists('authorization', $headers)){
-            http_response_code(407);
-            echo json_encode(array(
-                'message' => 'Não foi possível realizar o login por falta de autorização'
-            ));
-            exit;
-        }
-
-        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = base64_decode(str_replace("Bearer ", "", $data["authorization"]));
         $token = explode(":", $token);
         
         $email    = $token[0];
@@ -489,18 +419,9 @@ class AppController extends Controller {
     {
         $this->getHeaders();
 
-        $headers = getallheaders();
         $data = json_decode(file_get_contents("php://input"), true);
 
-        if(!array_key_exists('authorization', $headers)){
-            http_response_code(407);
-            echo json_encode(array(
-                'message' => 'Não foi possível realizar o login por falta de autorização'
-            ));
-            exit;
-        }
-
-        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = base64_decode(str_replace("Bearer ", "", $data["authorization"]));
         $token = explode(":", $token);
         
         $email    = $token[0];
@@ -539,18 +460,9 @@ class AppController extends Controller {
     {
         $this->getHeaders();
 
-        $headers = getallheaders();
         $data = json_decode(file_get_contents("php://input"), true);
 
-        if(!array_key_exists('authorization', $headers)){
-            http_response_code(407);
-            echo json_encode(array(
-                'message' => 'Não foi possível realizar o login por falta de autorização'
-            ));
-            exit;
-        }
-
-        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = base64_decode(str_replace("Bearer ", "", $data["authorization"]));
         $token = explode(":", $token);
         
         $email    = $token[0];
@@ -595,18 +507,9 @@ class AppController extends Controller {
     {
         $this->getHeaders();
 
-        $headers = getallheaders();
         $data = json_decode(file_get_contents("php://input"), true);
 
-        if(!array_key_exists('authorization', $headers)){
-            http_response_code(407);
-            echo json_encode(array(
-                'message' => 'Não foi possível realizar o login por falta de autorização'
-            ));
-            exit;
-        }
-
-        $token = base64_decode(str_replace("Bearer ", "", $headers["authorization"]));
+        $token = base64_decode(str_replace("Bearer ", "", $data["authorization"]));
         $token = explode(":", $token);
         
         $email    = $token[0];
